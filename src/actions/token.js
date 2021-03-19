@@ -1,15 +1,9 @@
 import axios from "axios";
 
-export const INCREMENT_TOKEN = "INCREMENT_TOKEN";
 export const GET_TOKEN = "GET_TOKEN";
 
-export const incrementToken = (value) => ({
-  type: INCREMENT_TOKEN,
-  value,
-});
-
 export const deleteToken = () => (dispatch) => {
-  dispatch(incrementToken(""));
+  dispatch(displayToken(""));
 };
 
 export const displayToken = (payload) => ({
