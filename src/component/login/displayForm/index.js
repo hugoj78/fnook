@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch, useSelector } from "react-redux";
+import { getToken } from "../../../actions/token";
 
 const DisplayForm = ({ formState, setFormState }) => {
+  const dispatch = useDispatch();
+
+  const onSubmitLog = (e) => {
+    e.preventDefault();
+    dispatch(getToken(formState));
+  };
+
   return (
     <Container>
-      <FormContainer onSubmit={(e) => e.preventDefault()}>
+      <FormContainer onSubmit={(e) => onSubmitLog(e)}>
         <DivContainer>
           <LabelContainer htmlFor="name">Enter your UserName: </LabelContainer>
           <InputContainer

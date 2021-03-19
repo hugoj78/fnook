@@ -1,13 +1,15 @@
-import {INCREMENT_TOKEN} from '../actions/token';
+import { INCREMENT_TOKEN, GET_TOKEN } from "../actions/token";
 
 const initialState = {
-  tokenValue: '',
+  tokenValue: "",
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case INCREMENT_TOKEN:
-      return {...state, tokenValue: action.value};
+      return { ...state, tokenValue: action.value };
+    case GET_TOKEN:
+      return { ...state, tokenValue: action.payload };
     default:
       return state;
   }

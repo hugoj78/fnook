@@ -1,4 +1,4 @@
-export const INCREMENT_USER = 'INCREMENT_USER';
+export const INCREMENT_USER = "INCREMENT_USER";
 
 export const incrementUser = (value) => ({
   type: INCREMENT_USER,
@@ -6,5 +6,5 @@ export const incrementUser = (value) => ({
 });
 
 export const deleteUser = () => (dispatch) => {
-  dispatch(incrementUser(''));
+  dispatch(incrementUser(""));
 };
