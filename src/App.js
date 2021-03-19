@@ -2,7 +2,7 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
-import Route from "./config/route";
+import Routes from "./config/route";
 import { Provider } from "react-redux";
 import { persistor, store } from "./config/store";
 import { PersistGate } from "redux-persist/integration/react";
@@ -12,7 +12,7 @@ function App() {
     <>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
-          <Route />
+          <Routes />
         </PersistGate>
       </Provider>
     </>

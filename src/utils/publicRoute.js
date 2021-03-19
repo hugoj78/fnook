@@ -8,7 +8,7 @@ const PublicRoute = ({ component: Component, ...rest }) => {
       {...rest}
       render={(props) =>
         localStorage.getItem("token") ? (
-          <Redirect to="/characters"></Redirect>
+          <Redirect to="/"></Redirect>
         ) : (
           <Component {...props} />
         )
