@@ -18,11 +18,7 @@ const Routes = () => {
     <Router>
       <Header />
       <Switch>
-        <PublicRoute
-          exact
-          path='/login'
-          component={props => <Login {...props} history={history} />}
-        />
+        <PublicRoute exact path='/login' component={Login} />
         <PrivateRoute exact path='/' component={Home} />
         <PrivateRoute exact path='/profil' component={Profil} />
         <PrivateRoute exact path='/basket' component={Basket} />
