@@ -1,4 +1,3 @@
-import { FaBars } from 'react-icons/fa'
 import { NavLink as Link } from 'react-router-dom'
 import styled from 'styled-components'
 
@@ -25,11 +24,6 @@ export const NavLink = styled(Link)`
   &.active {
     color: #003d60;
   }
-`
-
-export const Bars = styled(FaBars)`
-  display: none;
-  color: #fff;
 `
 
 export const NavMenu = styled.div`

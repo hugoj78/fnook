@@ -1,15 +1,22 @@
 import React from 'react'
-import styled from 'styled-components'
+import {
+  Container,
+  FormContainer,
+  DivContainer,
+  LabelContainer,
+  InputContainer,
+  ButtonContainer
+} from './FormElements'
 
 const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
   return (
     <Container>
       <FormContainer onSubmit={e => onSubmitLog(e)}>
         <DivContainer>
-          <LabelContainer htmlFor='name'>Enter your UserName: </LabelContainer>
+          <LabelContainer>Votre pseudo:</LabelContainer>
           <InputContainer
             type='text'
-            placeholder='Username'
+            placeholder='Pseudo'
             onChange={e =>
               setFormState({ ...formState, username: e.target.value })
             }
@@ -17,12 +24,10 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
           />
         </DivContainer>
         <DivContainer>
-          <LabelContainer htmlFor='password'>
-            Enter your Password:{' '}
-          </LabelContainer>
+          <LabelContainer>Votre Mot de Passe:</LabelContainer>
           <InputContainer
             type='password'
-            placeholder='Password'
+            placeholder='Mot De Passe'
             onChange={e =>
               setFormState({ ...formState, password: e.target.value })
             }
@@ -34,26 +39,5 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
     </Container>
   )
 }
-
-const Container = styled.div`
-  text-align: 'center';
-`
-
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-`
-
-const InputContainer = styled.input`
-  margin: ${props => props.theme.InputMargin};
-`
-
-const LabelContainer = styled.label``
-
-const ButtonContainer = styled.button``
-
-const DivContainer = styled.div``
 
 export default DisplayForm

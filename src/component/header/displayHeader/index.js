@@ -3,7 +3,6 @@ import {
   Nav,
   Image,
   NavLink,
-  Bars,
   NavMenu,
   NavBtn,
   NavBtnOnClick
@@ -19,7 +18,6 @@ const DisplayHeader = ({ disconnect }) => {
           <NavLink to='/'>
             <Image src='logo.svg' alt='logo' />
           </NavLink>
-          <Bars />
           <NavMenu>
             <NavLink to='/profil' activeStyle>
               Profil
@@ -35,11 +33,10 @@ const DisplayHeader = ({ disconnect }) => {
           </NavBtn>
         </Nav>
       ) : (
-        <Nav>
+        <Nav style={{ 'justify-content': 'center' }}>
           <NavLink to='/'>
             <Image src='logo.svg' alt='logo' />
           </NavLink>
-          <Bars />
         </Nav>
       )}
     </>
