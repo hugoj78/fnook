@@ -9,6 +9,8 @@ import PrivateRoute from '../../utils/privateRoute'
 import PublicRoute from '../../utils/publicRoute'
 import Login from '../../component/logIn'
 import Home from '../../component/home'
+import Profil from '../../component/profil'
+import Basket from '../../component/basket'
 import Header from '../../component/header'
 
 const Routes = () => {
@@ -22,7 +24,9 @@ const Routes = () => {
           component={props => <Login {...props} history={history} />}
         />
         <PrivateRoute exact path='/' component={Home} />
-        {/* <Route render={() => <Redirect to='/' />} /> */}
+        <PrivateRoute exact path='/profil' component={Profil} />
+        <PrivateRoute exact path='/basket' component={Basket} />
+        <Route render={() => <Redirect to='/' />} />
       </Switch>
     </Router>
   )
