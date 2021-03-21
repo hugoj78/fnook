@@ -1,24 +1,31 @@
-import React from "react";
+import React from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Switch,
-  Redirect,
-} from "react-router-dom";
-import PrivateRoute from "../../utils/privateRoute";
-import PublicRoute from "../../utils/publicRoute";
-import Login from "../../component/logIn";
+  Redirect
+} from 'react-router-dom'
+import PrivateRoute from '../../utils/privateRoute'
+import PublicRoute from '../../utils/publicRoute'
+import Login from '../../component/logIn'
+import Home from '../../component/home'
+import Header from '../../component/header'
 
 const Routes = () => {
   return (
     <Router>
-      {/* <Header></Header> */}
+      <Header />
       <Switch>
-        <Route exact path="/" component={(props) => <Login {...props} />} />
-        {/* <Route render={() => <Redirect to="/" />} /> */}
+        <PublicRoute
+          exact
+          path='/login'
+          component={props => <Login {...props} history={history} />}
+        />
+        <PrivateRoute exact path='/' component={Home} />
+        {/* <Route render={() => <Redirect to='/' />} /> */}
       </Switch>
     </Router>
-  );
-};
+  )
+}
 
-export default Routes;
+export default Routes

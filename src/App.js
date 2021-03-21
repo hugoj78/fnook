@@ -1,10 +1,10 @@
-import React from "react";
-import "./App.css";
+import React from 'react'
+import './App.css'
 
-import Routes from "./config/route";
-import { Provider } from "react-redux";
-import { persistor, store } from "./config/store";
-import { PersistGate } from "redux-persist/integration/react";
+import Routes from './config/route'
+import { Provider } from 'react-redux'
+import { persistor, store } from './config/store'
+import { PersistGate } from 'redux-persist/integration/react'
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
         </PersistGate>
       </Provider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,11 +1,13 @@
-import React from 'react';
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
-    return (
-        <div>
-            
-        </div>
-    );
-};
+  const user = useSelector(state => state.user.userValue)
+  return (
+    <div>
+      <p>{user}</p>
+    </div>
+  )
+}
 
-export default Home;
+export default Home

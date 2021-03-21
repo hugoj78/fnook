@@ -1,10 +1,10 @@
-export const INCREMENT_USER = "INCREMENT_USER";
+export const INCREMENT_USER = 'INCREMENT_USER'
 
-export const incrementUser = (value) => ({
+export const incrementUser = value => ({
   type: INCREMENT_USER,
-  value: value,
-});
+  value: value
+})
 
-export const deleteUser = () => (dispatch) => {
-  dispatch(incrementUser(""));
-};
+export const deleteUser = () => dispatch => {
+  dispatch(incrementUser(''))
+}
