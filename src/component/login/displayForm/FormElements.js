@@ -21,7 +21,10 @@ export const InputContainer = styled.input`
   font-family: inherit;
   width: 100%;
   border: 0;
-  border-bottom: 2px solid $gray;
+  border-bottom: 2px solid ${props => props.theme.textColor};
+  &::placeholder {
+    color: ${props => props.theme.textColor};
+  }
   outline: 0;
   font-size: 1.3rem;
   padding: 7px 0;
@@ -32,6 +35,16 @@ export const InputContainer = styled.input`
 
 export const LabelContainer = styled.label``
 
-export const ButtonContainer = styled.button``
+export const ButtonContainer = styled.button`
+  border-radius: 4px;
+  background: ${props => props.theme.buttonColor};
+  padding: 10px 22px;
+  color: #fff;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  margin-top: 24px;
+`
 
 export const DivContainer = styled.div``
