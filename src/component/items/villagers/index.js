@@ -19,29 +19,29 @@ const Villagers = () => {
     dispatch(getVillagers())
   }, [])
 
-  const [offSet, setoffSet] = useState(0)
+  const [offSet, setoffSet] = useState({ value: 0, number: 1 })
   const villagersList = useSelector(state => state.nookipedia.villagers)
   const [displayVillagers, setDiplayVillagers] = useState(
-    villagersList.slice(offSet, 24)
+    villagersList.slice(offSet.value, 24)
   )
 
   const increase = () => {
-    setoffSet(offSet + 24)
+    setoffSet({ value: offSet.value + 24, number: offSet.number + 1 })
   }
   const decrease = () => {
-    setoffSet(offSet - 24)
+    setoffSet({ value: offSet.value - 24, number: offSet.number - 1 })
   }
 
   useEffect(() => {
-    setDiplayVillagers(villagersList.slice(offSet, offSet + 24))
+    setDiplayVillagers(villagersList.slice(offSet.value, offSet.value + 24))
   }, [offSet])
 
   return (
     <Container>
       <PaginationContainer>
-        {offSet > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
-        <ParagrapheContainer>{offSet}</ParagrapheContainer>
-        {villagersList.length > offSet + 20 ? (
+        {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
+        <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
+        {villagersList.length > offSet.value + 20 ? (
           <ArrowRight onClick={increase} />
         ) : (
           <div> </div>

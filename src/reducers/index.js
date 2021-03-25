@@ -7,6 +7,6 @@ import nookipedia from './nookipedia'
 export default combineReducers({
   token,
   nookipedia,
-  stripe
+  stripe,
   user
 })
