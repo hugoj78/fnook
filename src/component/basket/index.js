@@ -1,10 +1,12 @@
 import React from 'react'
+import Checkout from './stripe/checkout'
 
 const Basket = () => {
   return (
-    <div>
+    <>
       <p>Basket page</p>
-    </div>
+      <Checkout />
+    </>
   )
 }
 
