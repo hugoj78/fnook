@@ -6,8 +6,8 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 20vh;
+  min-height: 10vh;
   font-size: 1.5rem;
-  background-color: ${props => props.theme.backgroundColor};
 `
 
 export const FormContainer = styled.form`
@@ -27,6 +27,7 @@ export const InputContainer = styled.input`
   padding: 7px 0;
   background: transparent;
   transition: border-color 0.2s;
+  color: ${props => props.theme.textColor};
 `
 
 export const LabelContainer = styled.label``

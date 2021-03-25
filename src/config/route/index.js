@@ -16,11 +16,13 @@ import Header from '../../component/header'
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
 import { theme, themeDark } from '../../config/theme'
+import { createGlobalStyle } from 'styled-components'
 
 const Routes = () => {
   const themeValue = useSelector(state => state.user.themeValue)
   return (
     <ThemeProvider theme={themeValue ? theme : themeDark}>
+      <GlobalStyle />
       <Router>
         <Header />
         <Switch>
@@ -34,5 +36,12 @@ const Routes = () => {
     </ThemeProvider>
   )
 }
+
+const GlobalStyle = createGlobalStyle`
+  body {
+    background-color: ${props => props.theme.backgroundColor};
+    color : ${props => props.theme.textColor}
+  }
+`
 
 export default Routes
