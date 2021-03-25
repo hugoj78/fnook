@@ -12,6 +12,8 @@ import Home from '../../component/home'
 import Profil from '../../component/profil'
 import Basket from '../../component/basket'
 import Header from '../../component/header'
+import Purchase from '../../component/purchase'
+import Sale from '../../component/sale'
 
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -30,6 +32,8 @@ const Routes = () => {
           <PrivateRoute exact path='/' component={Home} />
           <PrivateRoute exact path='/profil' component={Profil} />
           <PrivateRoute exact path='/basket' component={Basket} />
+          <PrivateRoute exact path='/purchase' component={Purchase} />
+          <PrivateRoute exact path='/sale' component={Sale} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>
