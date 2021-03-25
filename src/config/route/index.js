@@ -17,6 +17,7 @@ import Canceled from '../../component/basket/stripe/canceled'
 import Header from '../../component/header'
 import Purchase from '../../component/purchase'
 import Sale from '../../component/sale'
+import Villagers from '../../component/items/villagers'
 
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -33,6 +34,7 @@ const Routes = () => {
         <Switch>
           <PublicRoute exact path='/login' component={Login} />
           <PrivateRoute exact path='/' component={Home} />
+          <PrivateRoute exact path='/villagers' component={Villagers} />
           <PrivateRoute exact path='/profil' component={Profil} />
           <PrivateRoute exact path='/basket' component={Basket} />
           <PrivateRoute exact path='/basket/success' component={Success} />
