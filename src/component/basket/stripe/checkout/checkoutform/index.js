@@ -16,22 +16,7 @@ const CheckoutForm = () => {
       card: elements.getElement(CardElement)
     })
 
-    console.log(paymentMethod)
-    const { id } = paymentMethod
-
-    console.log(id)
-
-    dispatch(doPayement(id, 2700))
-
-    // const payment = await stripe.paymentIntents.create({
-    //   amount: 100,
-    //   currency: 'EUR',
-    //   description: 'test',
-    //   payment_method: id,
-    //   confirm: true
-    // })
-
-    // console.log(payment)
+    dispatch(doPayement(12345, paymentMethod.id))
   }
 
   return (

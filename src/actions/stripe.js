@@ -8,6 +8,9 @@ const stripe = new Stripe(
   'sk_test_51IYsN6FpxjXf87kOv5B2UOtUIL7lki6HZNPi5UZXKvNODmovxfHoW260Cr8uGXEtiBSNLaMJjnniA2oEcNjQA83x00IDqoeJQV'
 )
 
+const secretApiKey =
+  'sk_test_51IYsN6FpxjXf87kOv5B2UOtUIL7lki6HZNPi5UZXKvNODmovxfHoW260Cr8uGXEtiBSNLaMJjnniA2oEcNjQA83x00IDqoeJQV'
+
 export const useEffectUpdate = 'useEffectUpdate'
 export const increment = 'increment'
 export const decrement = 'decrement'
@@ -26,15 +29,19 @@ export const decrementBasket = payload => ({
   payload
 })
 
-export const doPayement = (id, amount) => dispatch => {
+export const doPayement = (amount, paymentMethod) => dispatch => {
   axios({
     method: 'post',
     url: 'https://api.stripe.com/v1/payment_intents',
-    body: {
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded',
+      Authorization: `Bearer ${secretApiKey}`
+    },
+    params: {
       amount,
-      currency: 'EUR',
-      description: 'test',
-      payment_method: id,
+      currency: 'eur',
+      payment_method_types: ['card'],
+      payment_method: paymentMethod,
       confirm: true
     }
   })
