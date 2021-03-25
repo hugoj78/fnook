@@ -13,7 +13,7 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
     <Container>
       <FormContainer onSubmit={e => onSubmitLog(e)}>
         <DivContainer>
-          <LabelContainer>Votre pseudo:</LabelContainer>
+          {/* <LabelContainer>Pseudo :</LabelContainer> */}
           <InputContainer
             type='text'
             placeholder='Pseudo'
@@ -24,7 +24,7 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
           />
         </DivContainer>
         <DivContainer>
-          <LabelContainer>Votre Mot de Passe:</LabelContainer>
+          {/* <LabelContainer>Mot de Passe:</LabelContainer> */}
           <InputContainer
             type='password'
             placeholder='Mot De Passe'

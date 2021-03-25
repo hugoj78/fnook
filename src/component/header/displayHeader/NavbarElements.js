@@ -2,7 +2,7 @@ import { NavLink as Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 export const Nav = styled.nav`
-  background: #54d4fc;
+  background: ${props => props.theme.header};
   height: 80px;
   display: flex;
   justify-content: space-between;
@@ -14,7 +14,7 @@ export const Image = styled.img`
 `
 
 export const NavLink = styled(Link)`
-  color: #fff;
+  color: ${props => props.theme.headerButtonEffectTextColor};
   display: flex;
   align-items: center;
   text-decoration: none;
@@ -22,7 +22,7 @@ export const NavLink = styled(Link)`
   height: 100%;
   cursor: pointer;
   &.active {
-    color: #003d60;
+    color: ${props => props.theme.headerButton};
   }
 `
 
@@ -41,7 +41,7 @@ export const NavBtn = styled.nav`
 
 export const NavBtnOnClick = styled.button`
   border-radius: 4px;
-  background: #003d60;
+  background: ${props => props.theme.headerButton};
   padding: 10px 22px;
   color: #fff;
   outline: none;
@@ -52,7 +52,7 @@ export const NavBtnOnClick = styled.button`
   margin-left: 24px;
   &:hover {
     transition: all 0.2s ease-in-out;
-    background: #fff;
-    color: #010606;
+    background: ${props => props.theme.headerButtonEffect};
+    color: ${props => props.theme.headerButtonEffectColor};
   }
 `
