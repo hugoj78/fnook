@@ -19,11 +19,9 @@ const incrementQuantity = (payload, list) => {
 }
 
 const decrementQuantity = (payload, list) => {
-  if (payload.quantity !== 1) {
-    payload.quantity = payload.quantity - 1
-    const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
-    list.splice(indexOfEdit, 1, payload)
-  }
+  payload.quantity = payload.quantity - 1
+  const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
+  list.splice(indexOfEdit, 1, payload)
   return [...list]
 }
 

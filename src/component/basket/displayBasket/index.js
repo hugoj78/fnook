@@ -35,7 +35,10 @@ const DisplayBasket = ({
                 <th>{item.name}</th>
                 <th>{item.amount} €</th>
                 <th>
-                  <button onClick={() => dispatch(decrementItemBasket(item))}>
+                  <button
+                    disabled={item.quantity === 1}
+                    onClick={() => dispatch(decrementItemBasket(item))}
+                  >
                     -
                   </button>
                   {item.quantity}
