@@ -2,14 +2,24 @@ import {
   addItem,
   removeItem,
   incrementItem,
-  decrementItem
+  decrementItem,
+  setTotalPrice
 } from '../actions/stripe'
 
 const initialState = {
-  basketValue: []
+  basketValue: [],
+  totalPrice: 0
 }
 
-const editItem = (payload, list) => {
+const incrementQuantity = (payload, list) => {
+  payload.quantity = payload.quantity + 1
+  const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
+  list.splice(indexOfEdit, 1, payload)
+  return list
+}
+
+const decrementQuantity = (payload, list) => {
+  payload.quantity = payload.quantity - 1
   const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
   list.splice(indexOfEdit, 1, payload)
   return list
@@ -17,6 +27,8 @@ const editItem = (payload, list) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case setTotalPrice:
+      return { ...state, totalPrice: action.payload }
     case addItem:
       return {
         ...state,
@@ -40,9 +52,15 @@ export default (state = initialState, action) => {
         )
       }
     case incrementItem:
-      return { ...state, basketValue: editItem(action.payload, state.list) }
+      return {
+        ...state,
+        basketValue: incrementQuantity(action.payload, state.basketValue)
+      }
     case decrementItem:
-      return { ...state, basketValue: editItem(action.payload, state.list) }
+      return {
+        ...state,
+        basketValue: decrementQuantity(action.payload, state.basketValue)
+      }
     default:
       return state
   }

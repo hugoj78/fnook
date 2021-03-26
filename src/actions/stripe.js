@@ -6,6 +6,13 @@ export const removeItem = 'removeItem'
 export const incrementItem = 'incrementItem'
 export const decrementItem = 'decrementItem'
 
+export const setTotalPrice = 'setTotalPrice'
+
+export const setTotalPriceForCheckout = payload => ({
+  type: setTotalPrice,
+  payload
+})
+
 export const addItemBasket = payload => ({
   type: addItem,
   payload

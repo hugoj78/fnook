@@ -13,7 +13,6 @@ import Profil from '../../component/profil'
 import Basket from '../../component/basket'
 import Success from '../../component/basket/stripe/success'
 import Checkout from '../../component/basket/stripe/checkout'
-import Canceled from '../../component/basket/stripe/canceled'
 import Header from '../../component/header'
 import Purchase from '../../component/purchase'
 import Sale from '../../component/sale'
@@ -70,7 +69,6 @@ const Routes = () => {
           <PrivateRoute exact path='/basket' component={Basket} />
           <PrivateRoute exact path='/basket/success' component={Success} />
           <PrivateRoute exact path='/basket/checkout' component={Checkout} />
-          <PrivateRoute exact path='/basket/canceled' component={Canceled} />
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />

@@ -8,14 +8,17 @@ export const ContainerVillagers = styled.div`
 `
 
 export const TitleVillager = styled.p`
-  width: 100%;
-  margin: 30px;
   font-size: 30px;
   text-align: left;
+  padding-left: 30px;
 `
 
 export const MoreVillager = styled.button`
-  width: 20%;
+  width: 100px;
+  height: 40px;
+  background-color: ${props => props.theme.headerButton};
+  border: none;
+  border-radius: 10px;
 `
 
 export const ColumnVillagers = styled.div`

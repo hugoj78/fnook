@@ -1,66 +1,63 @@
-import React from 'react'
-import { Container, Button, Text, Image } from './basketElement'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { removeItem, incrementItem, decrementItem } from '../../actions/stripe'
-import { NavLink as Link } from 'react-router-dom'
+import {
+  removeItemBasket,
+  incrementItemBasket,
+  decrementItemBasket,
+  setTotalPriceForCheckout,
+  addItemBasket
+} from '../../actions/stripe'
+import { useHistory } from 'react-router-dom'
+import DisplayBasket from './displayBasket'
 
 const Basket = () => {
+  const history = useHistory()
   const dispatch = useDispatch()
-  const totalPrice = '30'
+  const [totalPrice, setTotalPrice] = useState(0)
+
   const items = useSelector(state => state.stripe.basketValue)
+
+  useEffect(() => {
+    let total = 0
+    for (let index = 0; index < items.length; index++) {
+      const element = items[index]
+      total =
+        total +
+        Number.parseInt(element.amount) * Number.parseInt(element.quantity)
+    }
+    setTotalPrice(total)
+  }, [items])
+
+  const goCheckOut = () => {
+    dispatch(setTotalPriceForCheckout(totalPrice))
+    history.push('/basket/checkout')
+  }
+
+  const test = () => {
+    const item = {
+      id: 12,
+      name: 'ktm exc',
+      img: 'https://picsum.photos/200',
+      amount: '12200',
+      currency: 'eur',
+      quantity: 8
+    }
+
+    dispatch(addItemBasket(item))
+  }
 
   return (
     <>
-      {items.length !== 0 ? (
-        <table
-          style={{ width: '100%', paddingInline: '12px' }}
-          cellPadding='10'
-        >
-          <thead>
-            <tr>
-              <th></th>
-              <th>Nom</th>
-              <th>Prix</th>
-              <th>Quantité</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map(item => (
-              <tr key={item.id}>
-                <th>{item.img}</th>
-                <th>{item.name}</th>
-                <th>{item.amount} €</th>
-                <th>
-                  <button onClick={() => dispatch(decrementItem(item))}>
-                    -
-                  </button>
-                  {item.quantity}
-                  <button onClick={() => dispatch(incrementItem(item))}>
-                    +
-                  </button>
-                </th>
-                <th>
-                  <button onClick={() => dispatch(removeItem(item))}>X</button>
-                </th>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      ) : (
-        <p style={{ textAlign: 'center' }}>Panier vide snif snif</p>
-      )}
-
-      <div
-        style={{
-          display: 'block',
-          textAlign: 'center',
-          padding: '15px'
-        }}
-      >
-        <Button>Payer : {totalPrice}€</Button>
-        <Link to='/basket/checkout'>Achat</Link>
-      </div>
+      <DisplayBasket
+        items={items}
+        dispatch={dispatch}
+        decrementItemBasket={decrementItemBasket}
+        incrementItemBasket={incrementItemBasket}
+        removeItemBasket={removeItemBasket}
+        goCheckOut={goCheckOut}
+        totalPrice={totalPrice}
+        test={test}
+      />
     </>
   )
 }
