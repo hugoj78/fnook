@@ -9,9 +9,7 @@ import { PersistGate } from 'redux-persist/integration/react'
 import { Elements } from '@stripe/react-stripe-js'
 import { loadStripe } from '@stripe/stripe-js'
 
-const stripePromise = loadStripe(
-  'pk_test_51IYsN6FpxjXf87kOAoD3N68wHo5IDhOjiHjCXqnmhWdHsmnhereM817tqJ9IGX0lyZp7Y7DehI07FLOWfpZ6TajA00YFzFryQP'
-)
+const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PUBLIC_KEY)
 
 function App() {
   return (

@@ -8,7 +8,6 @@ const Basket = () => {
   const dispatch = useDispatch()
   const totalPrice = '30'
   const items = useSelector(state => state.stripe.basketValue)
-  console.log(items)
 
   return (
     <>
