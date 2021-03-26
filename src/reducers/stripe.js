@@ -15,14 +15,16 @@ const incrementQuantity = (payload, list) => {
   payload.quantity = payload.quantity + 1
   const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
   list.splice(indexOfEdit, 1, payload)
-  return list
+  return [...list]
 }
 
 const decrementQuantity = (payload, list) => {
-  payload.quantity = payload.quantity - 1
-  const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
-  list.splice(indexOfEdit, 1, payload)
-  return list
+  if (payload.quantity !== 1) {
+    payload.quantity = payload.quantity - 1
+    const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
+    list.splice(indexOfEdit, 1, payload)
+  }
+  return [...list]
 }
 
 export default (state = initialState, action) => {

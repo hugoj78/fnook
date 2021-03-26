@@ -8,8 +8,7 @@ const DisplayBasket = ({
   incrementItemBasket,
   removeItemBasket,
   goCheckOut,
-  totalPrice,
-  test
+  totalPrice
 }) => {
   return (
     <>
@@ -67,8 +66,6 @@ const DisplayBasket = ({
         <Button disabled={totalPrice === 0} onClick={() => goCheckOut()}>
           Payer : {totalPrice}€
         </Button>
-
-        <Button onClick={() => test()}>test</Button>
       </div>
     </>
   )

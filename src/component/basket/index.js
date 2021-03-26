@@ -33,19 +33,6 @@ const Basket = () => {
     history.push('/basket/checkout')
   }
 
-  const test = () => {
-    const item = {
-      id: 12,
-      name: 'ktm exc',
-      img: 'https://picsum.photos/200',
-      amount: '12200',
-      currency: 'eur',
-      quantity: 8
-    }
-
-    dispatch(addItemBasket(item))
-  }
-
   return (
     <>
       <DisplayBasket
@@ -56,7 +43,6 @@ const Basket = () => {
         removeItemBasket={removeItemBasket}
         goCheckOut={goCheckOut}
         totalPrice={totalPrice}
-        test={test}
       />
     </>
   )
