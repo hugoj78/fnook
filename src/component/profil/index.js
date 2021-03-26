@@ -13,11 +13,11 @@ const Profil = () => {
       <Image src='profil.png' alt='profil' />
       <Text>Pseudo : {user}</Text>
       <Button onClick={() => dispath(changeTheme())}>Theme</Button>
-      <Link to='/purchase'>
+      <Link to='/sale'>
         <Button>Mes ventes</Button>
       </Link>
-      <Link to='/sale'>
-        <Button to='/sale'>Mes achats</Button>
+      <Link to='/purchase'>
+        <Button>Mes achats</Button>
       </Link>
     </Container>
   )

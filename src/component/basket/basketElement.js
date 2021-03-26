@@ -1,10 +1,5 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
-  display: block;
-  text-align: center;
-`
-
 export const Button = styled.button`
   border-radius: 4px;
   background: ${props => props.theme.buttonColor};

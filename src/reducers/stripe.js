@@ -1,45 +1,48 @@
-import { useEffectUpdate, increment, decrement } from '../actions/stripe'
+import {
+  addItem,
+  removeItem,
+  incrementItem,
+  decrementItem
+} from '../actions/stripe'
 
 const initialState = {
-  basketValue: [],
-  quantity: 0
+  basketValue: []
+}
+
+const editItem = (payload, list) => {
+  const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
+  list.splice(indexOfEdit, 1, payload)
+  return list
 }
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case useEffectUpdate:
+    case addItem:
       return {
         ...state,
-        basketValue: {
-          amount: action.payload.amount * 100,
-          currency: action.payload.currency,
-          quantity: action.payload.quantity
-        }
+        basketValue: [
+          ...state.basketValue,
+          {
+            id: action.payload.id,
+            name: action.payload.name,
+            img: action.payload.img,
+            amount: action.payload.amount * action.payload.quantity,
+            currency: action.payload.currency,
+            quantity: action.payload.quantity
+          }
+        ]
       }
-    case increment:
+    case removeItem:
       return {
         ...state,
-        quantity: state.quantity + 1,
-        basketValue: {
-          amount: state.amount,
-          currency: state.currency,
-          quantity: state.quantity + 1
-        }
+        basketValue: state.basketValue.filter(
+          item => item.id !== action.payload.id
+        )
       }
-    case decrement:
-      return {
-        ...state,
-        quantity: state.quantity - 1,
-        basketValue: {
-          amount: state.amount * 100,
-          currency: state.currency,
-          quantity: action.payload.quantity
-        }
-      }
-    case 'setLoading':
-      return { ...state, loading: action.payload.loading }
-    case 'setError':
-      return { ...state, error: action.payload.error }
+    case incrementItem:
+      return { ...state, basketValue: editItem(action.payload, state.list) }
+    case decrementItem:
+      return { ...state, basketValue: editItem(action.payload, state.list) }
     default:
       return state
   }

@@ -1,35 +1,33 @@
 import axios from 'axios'
-import { useSelector } from 'react-redux'
 
-import Stripe from 'stripe'
-// don't commit your real stripe secret key... use env variables!!
-// https://www.leighhalliday.com/secrets-env-vars-nextjs-now
-const stripe = new Stripe(
-  'sk_test_51IYsN6FpxjXf87kOv5B2UOtUIL7lki6HZNPi5UZXKvNODmovxfHoW260Cr8uGXEtiBSNLaMJjnniA2oEcNjQA83x00IDqoeJQV'
-)
+export const addItem = 'addItem'
+export const removeItem = 'removeItem'
 
-const secretApiKey =
-  'sk_test_51IYsN6FpxjXf87kOv5B2UOtUIL7lki6HZNPi5UZXKvNODmovxfHoW260Cr8uGXEtiBSNLaMJjnniA2oEcNjQA83x00IDqoeJQV'
+export const incrementItem = 'incrementItem'
+export const decrementItem = 'decrementItem'
 
-export const useEffectUpdate = 'useEffectUpdate'
-export const increment = 'increment'
-export const decrement = 'decrement'
-
-export const updateBasket = payload => ({
-  type: useEffectUpdate,
+export const addItemBasket = payload => ({
+  type: addItem,
   payload
 })
 
-export const incrementBasket = () => ({
-  type: increment
+export const removeItemBasket = payload => ({
+  type: removeItem,
+  payload
 })
 
-export const decrementBasket = payload => ({
-  type: decrement,
+export const incrementItemBasket = payload => ({
+  type: incrementItem,
+  payload
+})
+
+export const decrementItemBasket = payload => ({
+  type: decrementItem,
   payload
 })
 
 export const doPayement = (amount, paymentMethod) => dispatch => {
+  const secretApiKey = process.env.REACT_APP_STRIPE_SECRET_KEY
   axios({
     method: 'post',
     url: 'https://api.stripe.com/v1/payment_intents',
