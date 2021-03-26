@@ -17,7 +17,9 @@ import Canceled from '../../component/basket/stripe/canceled'
 import Header from '../../component/header'
 import Purchase from '../../component/purchase'
 import Sale from '../../component/sale'
+import FormSale from '../../component/sale/form'
 import Villagers from '../../component/items/villagers'
+import ItemSales from '../../component/items/sales'
 
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -35,6 +37,7 @@ const Routes = () => {
           <PublicRoute exact path='/login' component={Login} />
           <PrivateRoute exact path='/' component={Home} />
           <PrivateRoute exact path='/villagers' component={Villagers} />
+          <PrivateRoute exact path='/items/:id' component={ItemSales} />
           <PrivateRoute exact path='/profil' component={Profil} />
           <PrivateRoute exact path='/basket' component={Basket} />
           <PrivateRoute exact path='/basket/success' component={Success} />
@@ -42,6 +45,7 @@ const Routes = () => {
           <PrivateRoute exact path='/basket/canceled' component={Canceled} />
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
+          <PrivateRoute exact path='/sale/form' component={FormSale} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>

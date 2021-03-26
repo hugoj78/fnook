@@ -19,6 +19,9 @@ const DisplayHeader = ({ disconnect }) => {
             <Image src='logo.svg' alt='logo' />
           </NavLink>
           <NavMenu>
+            <NavLink to='/sale/form' activeStyle>
+              Vendre
+            </NavLink>
             <NavLink to='/profil' activeStyle>
               Profil
             </NavLink>
