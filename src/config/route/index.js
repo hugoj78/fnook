@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -26,13 +26,41 @@ import { useSelector } from 'react-redux'
 import { theme, themeDark } from '../../config/theme'
 import { createGlobalStyle } from 'styled-components'
 
+import { getToken, onMessageListener } from '../firebase'
+import Toast from '../../component/toast'
+
 const Routes = () => {
   const themeValue = useSelector(state => state.user.themeValue)
+
+  const [show, setShow] = useState(false)
+  const [notification, setNotification] = useState()
+  const [isTokenFound, setTokenFound] = useState(false)
+  getToken(setTokenFound)
+
+  onMessageListener()
+    .then(payload => {
+      setShow(true)
+      setNotification({
+        title: payload.notification.title,
+        body: payload.notification.body
+      })
+    })
+    .catch(err => console.log('failed: ', err))
+
   return (
     <ThemeProvider theme={themeValue ? theme : themeDark}>
       <GlobalStyle />
       <Router>
         <Header />
+        {isTokenFound && show ? (
+          <>
+            <Toast
+              title={notification?.title}
+              body={notification?.body}
+              setShow={setShow}
+            />
+          </>
+        ) : null}
         <Switch>
           <PublicRoute exact path='/login' component={Login} />
           <PrivateRoute exact path='/' component={Home} />
