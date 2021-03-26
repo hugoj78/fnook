@@ -46,6 +46,7 @@ const DisplayForm = ({
             type='number'
             onChange={e => setPrice(e.target.value)}
             placeholder='Price'
+            min={1}
             required
           />
         </DivContainer>
@@ -54,6 +55,7 @@ const DisplayForm = ({
             type='number'
             onChange={e => setQuantity(e.target.value)}
             placeholder='Quantity'
+            min={1}
             required
           />
         </DivContainer>

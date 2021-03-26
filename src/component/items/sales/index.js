@@ -44,16 +44,6 @@ const ItemSales = props => {
 
   return (
     <Container>
-      <PaginationContainer>
-        {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
-        <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
-        {filterItems.length > offSet.value + 20 ? (
-          <ArrowRight onClick={increase} />
-        ) : (
-          <div> </div>
-        )}
-      </PaginationContainer>
-
       <RowVillagers>
         {filterItems.map(item => (
           <ColumnVillagers key={item?.name}>
@@ -67,6 +57,15 @@ const ItemSales = props => {
           </ColumnVillagers>
         ))}
       </RowVillagers>
+      <PaginationContainer>
+        {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
+        <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
+        {filterItems.length > offSet.value + 20 ? (
+          <ArrowRight onClick={increase} />
+        ) : (
+          <div> </div>
+        )}
+      </PaginationContainer>
     </Container>
   )
 }

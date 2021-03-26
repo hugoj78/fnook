@@ -2,7 +2,7 @@ import React from 'react'
 import { Container, Button, Text, Image } from './basketElement'
 import { useSelector, useDispatch } from 'react-redux'
 import { removeItem, incrementItem, decrementItem } from '../../actions/stripe'
-import Checkout from './stripe/checkout'
+import { NavLink as Link } from 'react-router-dom'
 
 const Basket = () => {
   const dispatch = useDispatch()
@@ -11,7 +11,6 @@ const Basket = () => {
 
   return (
     <>
-      <Checkout></Checkout>
       {items.length !== 0 ? (
         <table
           style={{ width: '100%', paddingInline: '12px' }}
@@ -60,6 +59,7 @@ const Basket = () => {
         }}
       >
         <Button>Payer : {totalPrice}€</Button>
+        <Link to='/basket/checkout'>Achat</Link>
       </div>
     </>
   )

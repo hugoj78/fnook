@@ -4,7 +4,7 @@ export const Container = styled.div`
   /* margin: 10px; */
 `
 export const ContainerVillagers = styled.div`
-  /* margin: 10px; */
+  text-align: center;
 `
 
 export const TitleVillager = styled.p`
@@ -15,8 +15,7 @@ export const TitleVillager = styled.p`
 `
 
 export const MoreVillager = styled.button`
-  width: 100%;
-  text-align: right;
+  width: 20%;
 `
 
 export const ColumnVillagers = styled.div`

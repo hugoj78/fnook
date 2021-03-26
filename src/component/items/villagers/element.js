@@ -32,7 +32,7 @@ export const ColumnVillagers = styled.div`
   font-size: 10px;
   text-align: center;
   margin: 0px 25px 10px;
-  background-color: white;
+  background-color: transparent;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -49,6 +49,7 @@ export const RowVillagers = styled.div`
 export const ImgVillagers = styled.img`
   height: 80px;
   width: auto;
+  margin: 10px;
 `
 
 export const BtnVillager = styled.button`

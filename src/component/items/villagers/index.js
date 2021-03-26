@@ -23,36 +23,29 @@ const Villagers = () => {
   const history = useHistory()
   const [offSet, setoffSet] = useState({ value: 0, number: 1 })
   const villagersList = useSelector(state => state.nookipedia.villagers)
+  const changeOffset = 15
   const [displayVillagers, setDiplayVillagers] = useState(
-    villagersList.slice(offSet.value, 24)
+    villagersList.slice(offSet.value, changeOffset)
   )
 
   const increase = () => {
-    setoffSet({ value: offSet.value + 24, number: offSet.number + 1 })
+    setoffSet({ value: offSet.value + changeOffset, number: offSet.number + 1 })
   }
   const decrease = () => {
-    setoffSet({ value: offSet.value - 24, number: offSet.number - 1 })
+    setoffSet({ value: offSet.value - changeOffset, number: offSet.number - 1 })
   }
   const redirectToSales = id => {
     history.push('/items/' + id)
   }
 
   useEffect(() => {
-    setDiplayVillagers(villagersList.slice(offSet.value, offSet.value + 24))
+    setDiplayVillagers(
+      villagersList.slice(offSet.value, offSet.value + changeOffset)
+    )
   }, [offSet])
 
   return (
     <Container>
-      <PaginationContainer>
-        {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
-        <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
-        {villagersList.length > offSet.value + 20 ? (
-          <ArrowRight onClick={increase} />
-        ) : (
-          <div> </div>
-        )}
-      </PaginationContainer>
-
       <RowVillagers>
         {displayVillagers.map(item => (
           <ColumnVillagers key={item?.name}>
@@ -65,6 +58,16 @@ const Villagers = () => {
           </ColumnVillagers>
         ))}
       </RowVillagers>
+
+      <PaginationContainer>
+        {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
+        <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
+        {villagersList.length > offSet.value + changeOffset / 2 ? (
+          <ArrowRight onClick={increase} />
+        ) : (
+          <div> </div>
+        )}
+      </PaginationContainer>
     </Container>
   )
 }
