@@ -40,7 +40,8 @@ export default (state = initialState, action) => {
             img: action.payload.img,
             amount: action.payload.amount,
             currency: action.payload.currency,
-            quantity: action.payload.quantity
+            quantity: action.payload.quantity,
+            user: action.payload.user
           }
         ]
       }

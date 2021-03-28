@@ -1,7 +1,7 @@
 import React from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { useDispatch, useSelector } from 'react-redux'
-import { doPayement } from '../../../../../actions/stripe'
+import { doPayement, removeItemBasket } from '../../../../../actions/stripe'
 import { useHistory } from 'react-router-dom'
 
 const CheckoutForm = () => {
@@ -11,6 +11,10 @@ const CheckoutForm = () => {
   const userName = useSelector(state => state.user.userValue)
   const price = useSelector(state => state.stripe.totalPrice)
   const history = useHistory()
+
+  const basket = useSelector(state => state.stripe.basketValue).filter(
+    item => item.user === userName
+  )
 
   const handleSubmit = async event => {
     event.preventDefault()
@@ -27,6 +31,11 @@ const CheckoutForm = () => {
       const { id } = paymentMethod
 
       dispatch(doPayement(price * 100, id))
+
+      for (let index = 0; index < basket.length; index++) {
+        const element = basket[index]
+        dispatch(removeItemBasket(element))
+      }
 
       history.push('/basket/success')
     }
