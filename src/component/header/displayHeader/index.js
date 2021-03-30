@@ -8,9 +8,11 @@ import {
   NavBtnOnClick
 } from './NavbarElements'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const DisplayHeader = ({ disconnect }) => {
   const tokenState = useSelector(state => state.token.tokenValue)
+  const { t, i18n } = useTranslation()
   return (
     <>
       {tokenState ? (
@@ -19,8 +21,10 @@ const DisplayHeader = ({ disconnect }) => {
             <Image src='logo.svg' alt='logo' />
           </NavLink>
           <NavMenu>
+            <button onClick={() => i18n.changeLanguage('fr')}>Fr</button>
+            <button onClick={() => i18n.changeLanguage('eng')}>En</button>
             <NavLink to='/profil' activeStyle>
-              Profil
+              {t('header.profil')}
             </NavLink>
             <NavLink to='/basket' activeStyle>
               Basket
