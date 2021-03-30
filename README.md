@@ -1,3 +1,4 @@
 # fnook
-yarn install
+npm i
+
 yarn start
