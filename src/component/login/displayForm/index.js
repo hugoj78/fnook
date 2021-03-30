@@ -3,12 +3,14 @@ import {
   Container,
   FormContainer,
   DivContainer,
-  LabelContainer,
   InputContainer,
   ButtonContainer
 } from './FormElements'
 
+import { useTranslation } from 'react-i18next'
+
 const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
+  const { t, i18n } = useTranslation()
   return (
     <Container>
       <FormContainer onSubmit={e => onSubmitLog(e)}>
@@ -16,7 +18,7 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
           {/* <LabelContainer>Pseudo :</LabelContainer> */}
           <InputContainer
             type='text'
-            placeholder='Pseudo'
+            placeholder={t('login.username')}
             onChange={e =>
               setFormState({ ...formState, username: e.target.value })
             }
@@ -27,14 +29,14 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
           {/* <LabelContainer>Mot de Passe:</LabelContainer> */}
           <InputContainer
             type='password'
-            placeholder='Mot De Passe'
+            placeholder={t('login.password')}
             onChange={e =>
               setFormState({ ...formState, password: e.target.value })
             }
             required
           />
         </DivContainer>
-        <ButtonContainer type='submit'>Log In</ButtonContainer>
+        <ButtonContainer type='submit'>{t('login.button')}</ButtonContainer>
       </FormContainer>
     </Container>
   )

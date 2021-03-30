@@ -13,7 +13,7 @@ export const Button = styled.button`
   outline: none;
   border: none;
   text-decoration: none;
-  margin: 10px;
+  margin: 20px;
 `
 
 export const Text = styled.p``

@@ -9,6 +9,9 @@ export const Button = styled.button`
   border: none;
   text-decoration: none;
   margin: 10px;
+  :disabled {
+    background: grey;
+  }
 `
 
 export const Text = styled.p``

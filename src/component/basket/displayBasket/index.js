@@ -1,5 +1,6 @@
 import React from 'react'
 import { Container, Button, Text, Image } from './basketElement'
+import { useTranslation } from 'react-i18next'
 
 const DisplayBasket = ({
   items,
@@ -11,6 +12,7 @@ const DisplayBasket = ({
   totalPrice,
   addTest
 }) => {
+  const { t, i18n } = useTranslation()
   return (
     <>
       {items.length !== 0 ? (
@@ -21,9 +23,9 @@ const DisplayBasket = ({
           <thead>
             <tr>
               <th></th>
-              <th>Nom</th>
-              <th>Prix</th>
-              <th>Quantité</th>
+              <th>{t('basket.name')}</th>
+              <th>{t('basket.price')}</th>
+              <th>{t('basket.amount')}</th>
               <th></th>
             </tr>
           </thead>
@@ -57,7 +59,7 @@ const DisplayBasket = ({
           </tbody>
         </table>
       ) : (
-        <p style={{ textAlign: 'center' }}>Panier vide snif snif</p>
+        <p style={{ textAlign: 'center' }}>{t('basket.emptyBasket')}</p>
       )}
 
       <div
@@ -68,7 +70,7 @@ const DisplayBasket = ({
         }}
       >
         <Button disabled={totalPrice === 0} onClick={() => goCheckOut()}>
-          Payer : {totalPrice}€
+          {t('basket.pay')} : {totalPrice}€
         </Button>
       </div>
       <Button onClick={() => addTest()}>test</Button>

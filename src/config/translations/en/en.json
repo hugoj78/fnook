@@ -4,6 +4,29 @@
       "profil": "Profil",
       "basket": "Basket",
       "disconnect": "Disconnect"
+    },
+    "login": {
+      "username": "Username",
+      "password": "Password",
+      "button" : "Log In"
+    },
+    "basket": {
+      "name": "Name",
+      "price": "Price",
+      "amount": "Amount",
+      "pay": "Pay",
+      "emptyBasket": "The basket is empty snif snif"
+    },
+    "profil": {
+      "username": "Username",
+      "bill": "My bills",
+      "sales": "My sales",
+      "purchase": "My purchases",
+      "lng": "Language"
+    },
+    "home": {
+      "villager": "Villager",
+      "showMore": "Show More"
     }
   }
 }

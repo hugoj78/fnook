@@ -4,6 +4,29 @@
       "profil": "Profil",
       "basket": "Panier",
       "disconnect": "Deconnexion"
+    },
+    "login": {
+      "username": "Pseudo",
+      "password": "Mot de Passe",
+      "button" : "Se connecter"
+    },
+    "basket": {
+      "name": "Nom",
+      "price": "Prix",
+      "amount": "Quantité",
+      "pay": "Payer",
+      "emptyBasket": "Le panier est vide snif snif"
+    },
+    "profil": {
+      "username": "Pseudo",
+      "bill": "Mes factures",
+      "sales": "Mes ventes",
+      "purchase": "Mes achats",
+      "lng": "Langue"
+    },
+    "home": {
+      "villager": "Villageois",
+      "showMore": "Voir plus"
     }
   }
 }

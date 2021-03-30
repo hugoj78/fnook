@@ -12,8 +12,10 @@ import {
   RowVillagers,
   MoreVillager
 } from './element'
+import { useTranslation } from 'react-i18next'
 
 const Home = () => {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getVillagers())
@@ -29,7 +31,7 @@ const Home = () => {
   return (
     <Container>
       <ContainerVillagers>
-        <TitleVillager> Villageois </TitleVillager>
+        <TitleVillager> {t('home.villager')} </TitleVillager>
         <RowVillagers>
           {fourVillagers.map(item => (
             <ColumnVillagers key={item?.name}>
@@ -38,7 +40,9 @@ const Home = () => {
             </ColumnVillagers>
           ))}
         </RowVillagers>
-        <MoreVillager onClick={redirectToVillagers}> voir plus </MoreVillager>
+        <MoreVillager onClick={redirectToVillagers}>
+          {t('home.showMore')}
+        </MoreVillager>
       </ContainerVillagers>
     </Container>
   )

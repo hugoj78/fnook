@@ -21,8 +21,6 @@ const DisplayHeader = ({ disconnect }) => {
             <Image src='logo.svg' alt='logo' />
           </NavLink>
           <NavMenu>
-            <button onClick={() => i18n.changeLanguage('fr')}>Fr</button>
-            <button onClick={() => i18n.changeLanguage('eng')}>En</button>
             <NavLink to='/profil' activeStyle>
               {t('header.profil')}
             </NavLink>
@@ -32,7 +30,7 @@ const DisplayHeader = ({ disconnect }) => {
           </NavMenu>
           <NavBtn>
             <NavBtnOnClick onClick={() => disconnect()}>
-              Disconnect
+              {t('header.disconnect')}
             </NavBtnOnClick>
           </NavBtn>
         </Nav>
