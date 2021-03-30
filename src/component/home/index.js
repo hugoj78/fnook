@@ -27,7 +27,7 @@ const Home = () => {
   const villagersList = useSelector(state => state.nookipedia.villagers)
   const [fourVillagers, setFourVillagers] = useState(villagersList.slice(0, 4))
   const redirectToVillagers = () => {
-    dispatch(swapIsLoading())
+    // dispatch(swapIsLoading())
     history.push('/villagers')
   }
 
