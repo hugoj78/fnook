@@ -10,6 +10,8 @@ export const setTotalPrice = 'setTotalPrice'
 
 export const setBill = 'setBill'
 
+export const incrementItemWithValue = 'incrementItemWithValue'
+
 export const setBillPayement = payload => ({
   type: setBill,
   payload
@@ -33,6 +35,12 @@ export const removeItemBasket = payload => ({
 export const incrementItemBasket = payload => ({
   type: incrementItem,
   payload
+})
+
+export const incrementItemBasketWithValue = (payload, value) => ({
+  type: incrementItemWithValue,
+  payload,
+  value
 })
 
 export const decrementItemBasket = payload => ({

@@ -24,11 +24,24 @@ export const ArrowLeft = styled(AiFillCaretLeft)`
   color: white;
 `
 
-export const ColumnVillagers = styled.div`
+export const DescriptionVillagers = styled.div`
   display: flex;
   width: 200px;
   height: 150px;
-  position: center;
+  position: left;
+  font-size: 10px;
+  text-align: center;
+  margin: 0px 25px 10px;
+  background-color: transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`
+export const SaleVillagers = styled.div`
+  display: flex;
+  width: 200px;
+  height: 150px;
+  position: right;
   font-size: 10px;
   text-align: center;
   margin: 0px 25px 10px;
@@ -66,8 +79,29 @@ export const VendeurItem = styled.div`
   color: #000;
 `
 
-export const QuantityToGet = styled.form``
-
 export const QuantityItem = styled.div`
   color: #000;
+`
+
+export const FormContainer = styled.form`
+  position: relative;
+  padding: 15px 0 0;
+  margin-top: 10px;
+  width: 50%;
+`
+
+export const InputContainer = styled.input`
+  font-family: inherit;
+  width: 100%;
+  border: 0;
+  border-bottom: 2px solid ${props => props.theme.textColor};
+  &::placeholder {
+    color: ${props => props.theme.textColor};
+  }
+  outline: 0;
+  font-size: 1.3rem;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+  color: ${props => props.theme.textColor};
 `

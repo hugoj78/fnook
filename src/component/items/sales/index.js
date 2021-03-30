@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { getVillagers } from '../../../actions/nookipedia'
+import { useHistory } from 'react-router-dom'
 import {
   RowVillagers,
   ColumnVillagers,
@@ -21,7 +22,7 @@ const ItemSales = props => {
   const dispatch = useDispatch()
   const salesItems = useSelector(state => state.sales.list)
   const filterItems = salesItems.filter(e => e.idMother === id)
-  console.log(salesItems)
+  const history = useHistory()
 
   const [offSet, setoffSet] = useState({ value: 0, number: 1 })
   const [displayItems, setDiplayItems] = useState(
@@ -52,7 +53,7 @@ const ItemSales = props => {
               Voir la vente
             </BtnVillager>
             <PriceItem>Prix : {item?.price} euros</PriceItem>
-            <QuantityItem>Quantité : {item?.quantity} </QuantityItem>
+            {/* <QuantityItem>Quantité : {item?.quantity} </QuantityItem> */}
             <VendeurItem> Vendeur : {item?.user} </VendeurItem>
           </ColumnVillagers>
         ))}
