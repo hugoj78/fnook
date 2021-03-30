@@ -27,6 +27,15 @@
     "home": {
       "villager": "Villageois",
       "showMore": "Voir plus"
+    },
+    "purchase": {
+      "title": "Vos Achats",
+      "date": "Date",
+      "PaymentMethode": "Méthode de paiement",
+      "Statut": "Statut",
+      "price": "Prix",
+      "button": "Reçu",
+      "noBill": "Vous n'avez point de facture"
     }
   }
 }

@@ -2,10 +2,11 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPayement } from '../../actions/stripe'
-import { Link } from 'react-router-dom'
+import { useTranslation } from 'react-i18next'
 
 const Purchase = () => {
   const dispatch = useDispatch()
+  const { t, i18n } = useTranslation()
 
   const user = useSelector(state => state.user.userValue)
   const bill = useSelector(state => state.stripe.bill).filter(
@@ -17,26 +18,35 @@ const Purchase = () => {
   }, [])
 
   const toDateTime = secs => {
-    var t = new Date(1970, 0, 1)
-    t.setSeconds(secs)
-    const stringDate = `${t.getFullYear()}- ${
-      t.getMonth() + 1
-    }-${t.getDate()} ${t.getHours()}:${t.getMinutes()}:${t.getSeconds()}`
+    var time = new Date(1970, 0, 1)
+    time.setSeconds(secs)
+    const stringDate = `${time.getFullYear()}/${
+      time.getMonth() + 1
+    }/${time.getDate()} ${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`
     return stringDate
   }
 
   return (
     <Container>
-      <h1>Vos Achats</h1>
+      <h1>{t('purchase.title')}</h1>
 
       {bill.length !== 0 ? (
         <>
           {bill.map(payment => (
             <div key={payment.id}>
-              <p>Date : {toDateTime(payment.created)}</p>
-              <p>Prix : {payment.amount / 100} €</p>
-              <p>Methode de payement : {payment.payment_method_types[0]}</p>
-              <p>Statut : {payment.status}</p>
+              <p>
+                {t('purchase.date')} : {toDateTime(payment.created)}
+              </p>
+              <p>
+                {t('purchase.price')} : {payment.amount / 100} €
+              </p>
+              <p>
+                {t('purchase.PaymentMethode')} :{' '}
+                {payment.payment_method_types[0]}
+              </p>
+              <p>
+                {t('purchase.Statut')} : {payment.status}
+              </p>
               <button
                 onClick={() =>
                   window.open(
@@ -45,14 +55,14 @@ const Purchase = () => {
                   )
                 }
               >
-                Reçu
+                {t('purchase.button')}
               </button>
             </div>
           ))}
         </>
       ) : (
         <>
-          <p>Vous n'avez aucune facture</p>
+          <p>{t('purchase.noBill')}</p>
         </>
       )}
     </Container>

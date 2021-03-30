@@ -27,6 +27,15 @@
     "home": {
       "villager": "Villager",
       "showMore": "Show More"
+    },
+    "purchase": {
+      "title": "Your Purchase",
+      "date": "Date",
+      "PaymentMethode": "Payment Methode",
+      "Statut": "Status",
+      "price": "Price",
+      "button": "Voucher",
+      "noBill": "You got no bill !"
     }
   }
 }
