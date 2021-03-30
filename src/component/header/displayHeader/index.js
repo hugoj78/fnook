@@ -27,7 +27,7 @@ const DisplayHeader = ({ disconnect }) => {
               {t('header.profil')}
             </NavLink>
             <NavLink to='/basket' activeStyle>
-              Basket
+              {t('header.basket')}
             </NavLink>
           </NavMenu>
           <NavBtn>
