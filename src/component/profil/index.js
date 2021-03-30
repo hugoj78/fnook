@@ -16,16 +16,13 @@ const Profil = () => {
       <Text>
         {t('profil.username')} : {user}
       </Text>
-      <Button onClick={() => dispath(changeTheme())}>Theme</Button>
-      <Link to='/bill'>
-        <Button>{t('profil.bill')}</Button>
-      </Link>
       <Link to='/sale'>
         <Button>{t('profil.sales')}</Button>
       </Link>
       <Link to='/purchase'>
         <Button>{t('profil.purchase')}</Button>
       </Link>
+      <Button onClick={() => dispath(changeTheme())}>Theme</Button>
       <Text>{t('profil.lng')} : </Text>
       <Button onClick={() => i18n.changeLanguage('fr')}>Fr</Button>
       <Button onClick={() => i18n.changeLanguage('eng')}>En</Button>

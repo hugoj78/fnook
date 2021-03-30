@@ -5,13 +5,13 @@ import styled from 'styled-components'
 const Loading = () => {
   return (
     <>
-      <div style={{ textAlign: 'center', marginTop: '250px' }}>
+      <Container>
         <ImageAnimated
           variants={variantImg}
           animate='animated'
           src='loading.png'
         />
-      </div>
+      </Container>
     </>
   )
 }
@@ -25,6 +25,11 @@ const variantImg = {
 
 const ImageAnimated = styled(motion.img)`
   width: 250px;
+`
+
+const Container = styled.div`
+  text-align: center;
+  margin-top: 250px;
 `
 
 export default Loading

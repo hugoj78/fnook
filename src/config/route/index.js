@@ -19,7 +19,6 @@ import Sale from '../../component/sale'
 import FormSale from '../../component/sale/form'
 import Villagers from '../../component/items/villagers'
 import ItemSales from '../../component/items/sales'
-import Bill from '../../component/bill'
 
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -86,7 +85,6 @@ const Routes = () => {
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />
-          <PrivateRoute exact path='/bill' component={Bill} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>

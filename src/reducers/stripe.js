@@ -3,7 +3,8 @@ import {
   removeItem,
   incrementItem,
   decrementItem,
-  setTotalPrice
+  setTotalPrice,
+  setBill
 } from '../actions/stripe'
 
 const initialState = {
@@ -28,6 +29,8 @@ const decrementQuantity = (payload, list) => {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case setBill:
+      return { ...state, bill: action.payload }
     case setTotalPrice:
       return { ...state, totalPrice: action.payload }
     case addItem:
