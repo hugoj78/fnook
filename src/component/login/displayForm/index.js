@@ -15,7 +15,6 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
     <Container>
       <FormContainer onSubmit={e => onSubmitLog(e)}>
         <DivContainer>
-          {/* <LabelContainer>Pseudo :</LabelContainer> */}
           <InputContainer
             type='text'
             placeholder={t('login.username')}
@@ -26,7 +25,6 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
           />
         </DivContainer>
         <DivContainer>
-          {/* <LabelContainer>Mot de Passe:</LabelContainer> */}
           <InputContainer
             type='password'
             placeholder={t('login.password')}

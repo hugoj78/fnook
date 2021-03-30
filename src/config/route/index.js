@@ -19,6 +19,7 @@ import Sale from '../../component/sale'
 import FormSale from '../../component/sale/form'
 import Villagers from '../../component/items/villagers'
 import ItemSales from '../../component/items/sales'
+import Bill from '../../component/bill'
 
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
@@ -27,15 +28,17 @@ import { createGlobalStyle } from 'styled-components'
 
 import { getToken, onMessageListener } from '../firebase'
 import Toast from '../../component/toast'
+import Loading from '../../component/loading'
 
 const Routes = () => {
   const themeValue = useSelector(state => state.user.themeValue)
+  const isLoading = useSelector(state => state.loading.isLoading)
 
   const [show, setShow] = useState(false)
   const [notification, setNotification] = useState()
   const [isTokenFound, setTokenFound] = useState(false)
-  getToken(setTokenFound)
 
+  getToken(setTokenFound)
   onMessageListener()
     .then(payload => {
       setShow(true)
@@ -45,6 +48,17 @@ const Routes = () => {
       })
     })
     .catch(err => console.log('failed: ', err))
+
+  if (isLoading) {
+    return (
+      <>
+        <ThemeProvider theme={themeValue ? theme : themeDark}>
+          <GlobalStyle />
+          <Loading />
+        </ThemeProvider>
+      </>
+    )
+  }
 
   return (
     <ThemeProvider theme={themeValue ? theme : themeDark}>
@@ -72,6 +86,7 @@ const Routes = () => {
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />
+          <PrivateRoute exact path='/bill' component={Bill} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>

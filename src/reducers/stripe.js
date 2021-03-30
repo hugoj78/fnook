@@ -8,7 +8,8 @@ import {
 
 const initialState = {
   basketValue: [],
-  totalPrice: 0
+  totalPrice: 0,
+  bill: []
 }
 
 const incrementQuantity = (payload, list) => {

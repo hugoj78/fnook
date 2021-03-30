@@ -1,4 +1,5 @@
 import axios from 'axios'
+import { swapIsLoading } from './loading'
 
 export const GET_TOKEN = 'GET_TOKEN'
 
@@ -20,6 +21,9 @@ export const getToken = formState => dispatch => {
       password: formState.password
     }
   })
-    .then(res => dispatch(displayToken(res.headers['x-access-token'])))
+    .then(res => {
+      dispatch(displayToken(res.headers['x-access-token']))
+      dispatch(swapIsLoading())
+    })
     .catch(err => console.log(err))
 }

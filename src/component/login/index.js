@@ -3,6 +3,7 @@ import DisplayForm from './displayForm'
 import { useDispatch } from 'react-redux'
 import { getToken } from '../../actions/token'
 import { incrementUser } from '../../actions/user'
+import { swapIsLoading } from '../../actions/loading'
 
 const Login = () => {
   const [formState, setFormState] = useState()
@@ -13,6 +14,7 @@ const Login = () => {
     e.preventDefault()
     dispatch(getToken(formState))
     dispatch(incrementUser(formState.username))
+    dispatch(swapIsLoading())
   }
 
   return (

@@ -12,8 +12,7 @@ export const getVillagers = () => dispatch => {
     method: 'get',
     url: 'https://api.nookipedia.com/villagers',
     params: {
-      game: 'NH',
-      offset: 2
+      game: 'NH'
     },
     headers: {
       'X-API-KEY': process.env.REACT_APP_NOOKIPEDIA_KEY
