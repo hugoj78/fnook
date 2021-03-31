@@ -8,6 +8,7 @@ import {
 import PrivateRoute from '../../utils/privateRoute'
 import PublicRoute from '../../utils/publicRoute'
 import AdminRoute from '../../utils/adminRoute'
+import UserPrivateRoute from '../../utils/userPrivateRoute'
 
 import Login from '../../component/login'
 import Home from '../../component/home'
@@ -97,7 +98,11 @@ const Routes = () => {
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />
-          <PrivateRoute exact path='/sale/form/:id' component={UpdateSale} />
+          <UserPrivateRoute
+            exact
+            path='/sale/form/:id'
+            component={UpdateSale}
+          />
           <AdminRoute exact path='/admin' component={Admin} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
