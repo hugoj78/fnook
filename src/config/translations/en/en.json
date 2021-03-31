@@ -48,6 +48,14 @@
       "price": "Price",
       "status": "Status",
       "receipt": "Receipt"
+    },
+    "sales": {
+      "title":"Eh Oh I m ThE SaLeS",
+      "button":"Add a sale",
+      "title2":"Your sale",
+      "name":"Name",
+      "price":"Price",
+      "quantity":"Quantity"
     }
   }
 }

@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom'
 import { useSelector } from 'react-redux'
+import { useTranslation } from 'react-i18next'
 
 const Sale = () => {
   const history = useHistory()
+  const { t, i18n } = useTranslation()
 
   const goToSale = () => {
     history.push('/sale/form')
@@ -18,15 +20,21 @@ const Sale = () => {
 
   return (
     <Container>
-      <H1>eh oh je suis les ventes</H1>
-      <Button onClick={() => goToSale()}>Ajouter une vente</Button>
-      <h3>Tes ventes</h3>
+      <H1>{t('sales.title')}</H1>
+      <Button onClick={() => goToSale()}>{t('sales.button')}</Button>
+      <H3>{t('sales.title2')}</H3>
       <HR />
       {sales.map(sale => (
         <div key={sale.id}>
-          <p>Nom : {sale.name}</p>
-          <p>Prix : {sale.price}</p>
-          <p>Quantité : {sale.quantity}</p>
+          <p>
+            {t('sales.name')} : {sale.name}
+          </p>
+          <p>
+            {t('sales.price')} : {sale.price} €
+          </p>
+          <p>
+            {t('sales.quantity')} : {sale.quantity}
+          </p>
           <HR />
         </div>
       ))}
@@ -39,6 +47,8 @@ const Container = styled.div`
 `
 
 const H1 = styled.h1``
+
+const H3 = styled.h3``
 
 const HR = styled.hr`
   margin: 10px 25px;

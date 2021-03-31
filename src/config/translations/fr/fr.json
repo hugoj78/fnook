@@ -48,6 +48,14 @@
       "price": "Prix",
       "status": "Statut",
       "receipt": "Reçu"
+    },
+    "sales":{
+      "title": "Eh Oh Je SuIs LeS vEnTeS",
+      "button": "Ajouter une vente",
+      "title2": "Tes ventes",
+      "name": "Nom",
+      "price": "Prix",
+      "quantity": "Quantité"
     }
   }
 }
