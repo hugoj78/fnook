@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+
 import {
   getVillagers,
   getFishs,
   getBugs,
   getArtworks
 } from '../../actions/nookipedia'
-import { swapIsLoading } from '../../actions/loading'
+import { setIsLoading, swapIsLoading } from '../../actions/loading'
 
-import styled from 'styled-components'
 import {
   Container,
   ContainerVillagers,
@@ -33,10 +33,10 @@ const Home = () => {
 
   const history = useHistory()
   const villagersList = useSelector(state => state.nookipedia.villagers)
-  const [fourVillagers, setFourVillagers] = useState(villagersList.slice(0, 4))
+  const fourVillagers = villagersList.slice(0, 4)
 
   const fishsList = useSelector(state => state.nookipedia.fishs)
-  const [fourFish, setFourFish] = useState(fishsList.slice(0, 4))
+  const fourFish = fishsList.slice(0, 4)
 
   const bugsList = useSelector(state => state.nookipedia.bugs)
   const [fourBugs, setFourBugs] = useState(bugsList.slice(0, 4))
@@ -45,7 +45,6 @@ const Home = () => {
   const [fourArtwork, setFourArtwork] = useState(artworkList.slice(0, 4))
 
   const redirectToVillagers = () => {
-    // dispatch(swapIsLoading())
     history.push('/villagers')
   }
 
@@ -68,7 +67,6 @@ const Home = () => {
         <RowVillagers>
           {fourVillagers.map(item => (
             <ColumnVillagers key={item?.name}>
-              {/* <p>{item.name}</p> */}
               <ImgVillagers src={item?.image_url} />
             </ColumnVillagers>
           ))}
@@ -83,7 +81,6 @@ const Home = () => {
         <RowVillagers>
           {fourFish.map(item => (
             <ColumnVillagers key={item?.name}>
-              {/* <p>{item.name}</p> */}
               <ImgVillagers src={item?.image_url} />
             </ColumnVillagers>
           ))}

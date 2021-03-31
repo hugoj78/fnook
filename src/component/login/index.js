@@ -14,7 +14,7 @@ const Login = () => {
     e.preventDefault()
     dispatch(getToken(formState))
     dispatch(incrementUser(formState.username))
-    dispatch(swapIsLoading())
+    setTimeout(() => dispatch(swapIsLoading()), 1000)
   }
 
   return (
