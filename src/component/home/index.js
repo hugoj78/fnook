@@ -25,10 +25,10 @@ const Home = () => {
 
   const history = useHistory()
   const villagersList = useSelector(state => state.nookipedia.villagers)
-  const [fourVillagers, setFourVillagers] = useState(villagersList.slice(0, 4))
+  const fourVillagers = villagersList.slice(0, 4)
 
   const fishsList = useSelector(state => state.nookipedia.fishs)
-  const [fourFish, setFourFish] = useState(fishsList.slice(0, 4))
+  const fourFish = fishsList.slice(0, 4)
 
   const redirectToVillagers = () => {
     history.push('/villagers')
@@ -44,7 +44,6 @@ const Home = () => {
         <RowVillagers>
           {fourVillagers.map(item => (
             <ColumnVillagers key={item?.name}>
-              {/* <p>{item.name}</p> */}
               <ImgVillagers src={item?.image_url} />
             </ColumnVillagers>
           ))}
@@ -59,7 +58,6 @@ const Home = () => {
         <RowVillagers>
           {fourFish.map(item => (
             <ColumnVillagers key={item?.name}>
-              {/* <p>{item.name}</p> */}
               <ImgVillagers src={item?.image_url} />
             </ColumnVillagers>
           ))}

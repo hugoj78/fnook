@@ -56,6 +56,15 @@
       "name": "Nom",
       "price": "Prix",
       "quantity": "Quantité"
+    },
+    "checkoutSuccess":{
+      "title": "Votre payement a été effectué avec succès :P",
+      "button": "Retour à la page d'accueil"
+    },
+    "checkout":{
+      "text": "Vous êtes hors ligne, la fonctionnalité de payement est donc désactiver",
+      "button": "Payer",
+      "price": "Prix"
     }
   }
 }

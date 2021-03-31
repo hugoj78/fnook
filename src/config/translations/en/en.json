@@ -56,6 +56,15 @@
       "name":"Name",
       "price":"Price",
       "quantity":"Quantity"
+    },
+    "checkoutSuccess":{
+      "title": "It's ok bro ",
+      "button": "Come back to Home"
+    },
+    "checkout":{
+      "text": "You're offline, you can't procede to pay",
+      "button": "Pay",
+      "price": "Price"
     }
   }
 }

@@ -13,6 +13,7 @@ export const displayToken = payload => ({
 })
 
 export const getToken = formState => dispatch => {
+  dispatch(swapIsLoading())
   axios({
     method: 'post',
     url: 'https://easy-login-api.herokuapp.com/users/login',
@@ -21,9 +22,6 @@ export const getToken = formState => dispatch => {
       password: formState.password
     }
   })
-    .then(res => {
-      dispatch(displayToken(res.headers['x-access-token']))
-      dispatch(swapIsLoading())
-    })
+    .then(res => dispatch(displayToken(res.headers['x-access-token'])))
     .catch(err => console.log(err))
 }

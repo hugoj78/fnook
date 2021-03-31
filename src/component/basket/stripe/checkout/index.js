@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { useDispatch, useSelector } from 'react-redux'
 import { doPayement, removeItemBasket } from '../../../../actions/stripe'
 import { useHistory } from 'react-router-dom'
 import { checkSale } from '../../../../actions/sales'
+import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
 
 const Checkout = () => {
+  const { t } = useTranslation()
   const stripe = useStripe()
   const elements = useElements()
   const dispatch = useDispatch()
@@ -40,7 +43,6 @@ const Checkout = () => {
         dispatch(checkSale(filterItem[0], element.quantity))
         dispatch(removeItemBasket(element))
       }
-
       history.push('/basket/success')
     }
   }
@@ -64,17 +66,44 @@ const Checkout = () => {
   }
 
   return (
-    <form
-      onSubmit={handleSubmit}
-      style={{ maxWidth: '400px', margin: '0 auto' }}
-    >
-      <p>Price: {price} €</p>
-      <CardElement options={options} />
-      <button type='submit' disabled={!stripe}>
-        Pay
-      </button>
-    </form>
+    <Container>
+      <form
+        onSubmit={handleSubmit}
+        style={{ maxWidth: '400px', margin: '0 auto' }}
+      >
+        <p>
+          {t('checkout.price')} : {price} €
+        </p>
+        {navigator.onLine ? (
+          <>
+            <CardElement options={options} />
+            <Button type='submit' disabled={!stripe}>
+              {t('checkout.button')}
+            </Button>
+          </>
+        ) : (
+          <>
+            <p>{t('checkout.text')}</p>
+          </>
+        )}
+      </form>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  text-align: center;
+`
+
+const Button = styled.button`
+  border-radius: 4px;
+  background: ${props => props.theme.buttonColor};
+  padding: 10px 22px;
+  color: #fff;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  margin: 20px;
+`
 
 export default Checkout
