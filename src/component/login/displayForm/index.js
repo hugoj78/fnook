@@ -34,7 +34,9 @@ const DisplayForm = ({ formState, setFormState, onSubmitLog }) => {
             required
           />
         </DivContainer>
-        <ButtonContainer type='submit'>{t('login.button')}</ButtonContainer>
+        <ButtonContainer disabled={!navigator.onLine} type='submit'>
+          {t('login.button')}
+        </ButtonContainer>
       </FormContainer>
     </Container>
   )
