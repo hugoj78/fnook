@@ -44,7 +44,7 @@ const Admin = () => {
             {t('admin.name')} : {bill.charges.data[0].billing_details.name}
           </p>
           <p>
-            {t('admin.price')} : {bill.amount} €
+            {t('admin.price')} : {bill.amount / 100} €
           </p>
           <p>
             {t('admin.status')} : {bill.status}
