@@ -41,6 +41,14 @@
       "button": "Reçu",
       "noBill": "Vous n'avez point de facture"
     },
+    "sales":{
+      "title": "Eh Oh Je SuIs LeS vEnTeS",
+      "button": "Ajouter une vente",
+      "title2": "Tes ventes",
+      "name": "Nom",
+      "price": "Prix",
+      "quantity": "Quantité"
+    },
     "admin":{
       "title": "Admin Page",
       "saleTitle": "Toutes les ventes",
@@ -83,14 +91,6 @@
         "price": "Prix",
         "quantity": "Quantité"
       },
-    "sales":{
-      "title": "Eh Oh Je SuIs LeS vEnTeS",
-      "button": "Ajouter une vente",
-      "title2": "Tes ventes",
-      "name": "Nom",
-      "price": "Prix",
-      "quantity": "Quantité"
-    },
     "checkoutSuccess":{
       "title": "Votre payement a été effectué avec succès :P",
       "button": "Retour à la page d'accueil"

@@ -22,6 +22,9 @@ export const getToken = formState => dispatch => {
       password: formState.password
     }
   })
-    .then(res => dispatch(displayToken(res.headers['x-access-token'])))
+    .then(res => {
+      dispatch(displayToken(res.headers['x-access-token']))
+      setTimeout(() => dispatch(swapIsLoading()), 1000)
+    })
     .catch(err => console.log(err))
 }

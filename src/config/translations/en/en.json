@@ -65,6 +65,14 @@
 
       }
     },
+    "sales": {
+      "title":"Eh Oh I m ThE SaLeS",
+      "button":"Add a sale",
+      "title2":"Your sale",
+      "name":"Name",
+      "price":"Price",
+      "quantity":"Quantity"
+    },
     "item":{
       "price": "Price",
       "seller": "Seller",
@@ -83,14 +91,7 @@
         "price": "Price",
         "quantity": "Quantity"
       },
-    "sales": {
-      "title":"Eh Oh I m ThE SaLeS",
-      "button":"Add a sale",
-      "title2":"Your sale",
-      "name":"Name",
-      "price":"Price",
-      "quantity":"Quantity"
-    },
+    
     "checkoutSuccess":{
       "title": "It's ok bro ",
       "button": "Come back to Home"
