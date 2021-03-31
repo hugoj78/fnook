@@ -9,8 +9,7 @@ const DisplayBasket = ({
   incrementItemBasket,
   removeItemBasket,
   goCheckOut,
-  totalPrice,
-  addTest
+  totalPrice
 }) => {
   const { t, i18n } = useTranslation()
   return (
@@ -73,7 +72,6 @@ const DisplayBasket = ({
           {t('basket.pay')} : {totalPrice}€
         </Button>
       </div>
-      <Button onClick={() => addTest()}>test</Button>
     </>
   )
 }
