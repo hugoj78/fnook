@@ -14,8 +14,8 @@ const addSale = (state, payload) => {
 }
 
 const removeSale = (state, payload) => {
-  state.list.filter(item => item.id !== payload.id)
-  return [...state.list]
+  const newList = state.list.filter(item => item.id !== payload.id)
+  return newList
 }
 
 const decrementSaleQuantity = (state, payload, quantity) => {
