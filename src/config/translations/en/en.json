@@ -27,7 +27,8 @@
     },
     "home": {
       "villager": "Villager",
-      "showMore": "Show More"
+      "showMore": "Show More",
+      "fish": "fish"
     },
     "purchase": {
       "title": "Your Purchase",

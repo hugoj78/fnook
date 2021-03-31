@@ -27,7 +27,8 @@
     },
     "home": {
       "villager": "Villageois",
-      "showMore": "Voir plus"
+      "showMore": "Voir plus",
+      "fish": "Poissons"
     },
     "purchase": {
       "title": "Vos Achats",

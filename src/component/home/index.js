@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getVillagers } from '../../actions/nookipedia'
+import { getVillagers, getFishs } from '../../actions/nookipedia'
 import { swapIsLoading } from '../../actions/loading'
 
 import styled from 'styled-components'
@@ -21,16 +21,24 @@ const Home = () => {
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getVillagers())
+    dispatch(getFishs())
   }, [])
 
   const history = useHistory()
   const villagersList = useSelector(state => state.nookipedia.villagers)
   const [fourVillagers, setFourVillagers] = useState(villagersList.slice(0, 4))
+
+  const fishsList = useSelector(state => state.nookipedia.fishs)
+  const [fourFish, setFourFish] = useState(fishsList.slice(0, 4))
+
   const redirectToVillagers = () => {
     // dispatch(swapIsLoading())
     history.push('/villagers')
   }
 
+  const redirectToFishs = () => {
+    history.push('/fishs')
+  }
   return (
     <Container>
       <ContainerVillagers>
@@ -44,6 +52,21 @@ const Home = () => {
           ))}
         </RowVillagers>
         <MoreVillager onClick={redirectToVillagers}>
+          {t('home.showMore')}
+        </MoreVillager>
+      </ContainerVillagers>
+
+      <ContainerVillagers>
+        <TitleVillager> {t('home.fish')} </TitleVillager>
+        <RowVillagers>
+          {fourFish.map(item => (
+            <ColumnVillagers key={item?.name}>
+              {/* <p>{item.name}</p> */}
+              <ImgVillagers src={item?.image_url} />
+            </ColumnVillagers>
+          ))}
+        </RowVillagers>
+        <MoreVillager onClick={redirectToFishs}>
           {t('home.showMore')}
         </MoreVillager>
       </ContainerVillagers>
