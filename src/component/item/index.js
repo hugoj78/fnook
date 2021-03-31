@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getVillagers } from '../../actions/nookipedia'
 import { useHistory } from 'react-router-dom'
 import { swapIsLoading } from '../../actions/loading'
+import { useTranslation } from 'react-i18next'
 import {
   addItemBasket,
   incrementItemBasketWithValue
@@ -26,6 +27,7 @@ import {
 } from './element'
 
 const Item = props => {
+  const { t, i18n } = useTranslation()
   const dispatch = useDispatch()
   const [id, setId] = useState(props.match.params.id)
   const user = useSelector(state => state.user.userValue)
@@ -66,23 +68,30 @@ const Item = props => {
       <RowVillagers>
         <DescriptionVillagers key={filterItem[0]?.name}>
           <ImgVillagers src={filterItem[0]?.image_url} />
-          <PriceItem>Prix : {filterItem[0]?.price} euros</PriceItem>
+          <PriceItem>
+            {t('item.price')} : {filterItem[0]?.price} euros
+          </PriceItem>
           {checkBasket.length > 0 ? (
             <QuantityItem>
-              Quantité : {filterItem[0]?.quantity - checkBasket[0]?.quantity}
+              {t('item.quantity')} :{' '}
+              {filterItem[0]?.quantity - checkBasket[0]?.quantity}
             </QuantityItem>
           ) : (
-            <QuantityItem> Quantité : {filterItem[0]?.quantity} </QuantityItem>
+            <QuantityItem>
+              {t('item.quantity')} : {filterItem[0]?.quantity}{' '}
+            </QuantityItem>
           )}
 
-          <VendeurItem> Vendeur : {filterItem[0]?.user} </VendeurItem>
+          <VendeurItem>
+            {t('item.seller')} : {filterItem[0]?.user}{' '}
+          </VendeurItem>
         </DescriptionVillagers>
         {checkBasket.length > 0 ? (
           <SaleVillagers>
             <FormContainer>
               <InputContainer
                 type='number'
-                placeholder='Quantité'
+                placeholder={t('item.quantity')}
                 max={filterItem[0]?.quantity - checkBasket[0]?.quantity}
                 min={1}
                 required
@@ -91,7 +100,7 @@ const Item = props => {
             </FormContainer>
 
             <BtnVillager onClick={() => addBasketWhenExist()}>
-              Ajouter au Panier
+              {t('item.button')}
             </BtnVillager>
           </SaleVillagers>
         ) : (
@@ -99,7 +108,7 @@ const Item = props => {
             <FormContainer>
               <InputContainer
                 type='number'
-                placeholder='Quantité'
+                placeholder={t('item.quantity')}
                 max={filterItem[0]?.quantity}
                 min={1}
                 required
@@ -108,7 +117,7 @@ const Item = props => {
             </FormContainer>
 
             <BtnVillager onClick={() => addBasket()}>
-              Ajouter au Panier
+              {t('item.button')}
             </BtnVillager>
           </SaleVillagers>
         )}

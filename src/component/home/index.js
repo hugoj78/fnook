@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
-import { getVillagers, getFishs } from '../../actions/nookipedia'
+import {
+  getVillagers,
+  getFishs,
+  getBugs,
+  getArtworks
+} from '../../actions/nookipedia'
 import { swapIsLoading } from '../../actions/loading'
 
 import styled from 'styled-components'
@@ -22,6 +27,8 @@ const Home = () => {
   useEffect(() => {
     dispatch(getVillagers())
     dispatch(getFishs())
+    dispatch(getBugs())
+    dispatch(getArtworks())
   }, [])
 
   const history = useHistory()
@@ -31,6 +38,12 @@ const Home = () => {
   const fishsList = useSelector(state => state.nookipedia.fishs)
   const [fourFish, setFourFish] = useState(fishsList.slice(0, 4))
 
+  const bugsList = useSelector(state => state.nookipedia.bugs)
+  const [fourBugs, setFourBugs] = useState(bugsList.slice(0, 4))
+
+  const artworkList = useSelector(state => state.nookipedia.artworks)
+  const [fourArtwork, setFourArtwork] = useState(artworkList.slice(0, 4))
+
   const redirectToVillagers = () => {
     // dispatch(swapIsLoading())
     history.push('/villagers')
@@ -39,6 +52,15 @@ const Home = () => {
   const redirectToFishs = () => {
     history.push('/fishs')
   }
+
+  const redirectToBugs = () => {
+    history.push('/bugs')
+  }
+
+  const redirectToArtworks = () => {
+    history.push('/artworks')
+  }
+
   return (
     <Container>
       <ContainerVillagers>
@@ -67,6 +89,36 @@ const Home = () => {
           ))}
         </RowVillagers>
         <MoreVillager onClick={redirectToFishs}>
+          {t('home.showMore')}
+        </MoreVillager>
+      </ContainerVillagers>
+
+      <ContainerVillagers>
+        <TitleVillager> {t('home.bug')} </TitleVillager>
+        <RowVillagers>
+          {fourBugs.map(item => (
+            <ColumnVillagers key={item?.name}>
+              {/* <p>{item.name}</p> */}
+              <ImgVillagers src={item?.image_url} />
+            </ColumnVillagers>
+          ))}
+        </RowVillagers>
+        <MoreVillager onClick={redirectToBugs}>
+          {t('home.showMore')}
+        </MoreVillager>
+      </ContainerVillagers>
+
+      <ContainerVillagers>
+        <TitleVillager> {t('home.art')} </TitleVillager>
+        <RowVillagers>
+          {fourArtwork.map(item => (
+            <ColumnVillagers key={item?.name}>
+              {/* <p>{item.name}</p> */}
+              <ImgVillagers src={item?.image_url} />
+            </ColumnVillagers>
+          ))}
+        </RowVillagers>
+        <MoreVillager onClick={redirectToArtworks}>
           {t('home.showMore')}
         </MoreVillager>
       </ContainerVillagers>

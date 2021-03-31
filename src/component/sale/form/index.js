@@ -1,41 +1,63 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getVillagers } from '../../../actions/nookipedia'
+import { getBugs, getFishs, getVillagers } from '../../../actions/nookipedia'
 import DisplayForm from './displayForm'
 import { getToken } from '../../../actions/token'
 import { incrementUser } from '../../../actions/user'
 import { addSale } from '../../../actions/sales'
 import uuid from 'uuid'
 import { useHistory } from 'react-router-dom'
-
+import { useTranslation } from 'react-i18next'
 const FormSale = () => {
-  const [options, setOptions] = useState(['Villagers', 'Fishs'])
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getVillagers())
+    dispatch(getBugs())
+    dispatch(getFishs())
   }, [])
 
+  const { t, i18n } = useTranslation()
+  const [options, setOptions] = useState([
+    t('sale.villagers'),
+    t('sale.fishs'),
+    t('sale.bugs'),
+    t('sale.arts')
+  ])
+
   const history = useHistory()
-  const [type, setType] = useState('Villagers')
+  const [type, setType] = useState(String(t('sale.villagers')))
   const villagersList = useSelector(state => state.nookipedia.villagers)
   const fishsList = useSelector(state => state.nookipedia.fishs)
+  const bugsList = useSelector(state => state.nookipedia.bugs)
+  const artsList = useSelector(state => state.nookipedia.artworks)
   const [typeItems, setTypeItems] = useState(villagersList)
-  const [idItem, setIdItem] = useState(villagersList[0].id)
+  const [idItem, setIdItem] = useState()
   const [price, setPrice] = useState(0)
   const [quantity, setQuantity] = useState(0)
-  const [imageurl, setImageUrl] = useState(villagersList[0].image_url)
-  const [name, setName] = useState(villagersList[0].name)
+  const [imageurl, setImageUrl] = useState()
+  const [name, setName] = useState()
   const user = useSelector(state => state.user.userValue)
 
   useEffect(() => {
-    if (type === 'Villagers') {
+    if (type === String(t('sale.villagers'))) {
       setTypeItems(villagersList)
-    } else if (type === 'Fishs') {
+    } else if (type === String(t('sale.fishs'))) {
       setTypeItems(fishsList)
+    } else if (type === String(t('sale.bugs'))) {
+      setTypeItems(bugsList)
+    } else if (type === String(t('sale.arts'))) {
+      setTypeItems(artsList)
     }
   }, [type])
 
+  useEffect(() => {
+    setIdItem(typeItems[0].id)
+    setName(typeItems[0].name)
+    setImageUrl(typeItems[0].image_url)
+  }, [typeItems])
+
   const changeItem = idI => {
+    console.log(idI)
     const newitem = typeItems.filter(e => e.name === idI)
     setIdItem(newitem[0].id)
     setName(newitem[0].name)

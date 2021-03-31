@@ -28,7 +28,9 @@
     "home": {
       "villager": "Villager",
       "showMore": "Show More",
-      "fish": "fish"
+      "fish": "Fish",
+      "bug": "Bugs",
+      "art": "Artworks"
     },
     "purchase": {
       "title": "Your Purchase",
@@ -48,6 +50,39 @@
       "price": "Price",
       "status": "Status",
       "receipt": "Receipt"
+    },
+    "items":{
+      "villagers":{
+
+      },
+      "fishs":{
+
+      },
+      "sales":{
+        "price": "Price",
+        "seller": "Seller",
+        "button": "See"
+
+      }
+    },
+    "item":{
+      "price": "Price",
+      "seller": "Seller",
+      "button": "Add to basket",
+      "quantity": "Quantity"
+    },
+    "sale":{
+      "bugs": "Bugs",
+      "fishs": "Fish",
+      "villagers": "Villagers",
+      "arts": "Artworks",
+      "index": {
+        "update": "Update",
+        "remove": "X",
+        "seller": "Seller",
+        "price": "Price",
+        "quantity": "Quantity"
+      }
     }
   }
 }

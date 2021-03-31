@@ -28,7 +28,9 @@
     "home": {
       "villager": "Villageois",
       "showMore": "Voir plus",
-      "fish": "Poissons"
+      "fish": "Poissons",
+      "bug": "Insectes",
+      "art": "Oeuvres d'arts"
     },
     "purchase": {
       "title": "Vos Achats",
@@ -48,6 +50,39 @@
       "price": "Prix",
       "status": "Statut",
       "receipt": "Reçu"
+    },
+    "items":{
+      "villagers":{
+
+      },
+      "fishs":{
+
+      },
+      "sales":{
+        "price": "Prix",
+        "seller": "Vendeur",
+        "button": "Voir la Vente"
+
+      }
+    },
+    "item":{
+      "price": "Prix",
+      "seller": "Vendeur",
+      "button": "Ajouter au panier",
+      "quantity": "Quantité"
+    },
+    "sale":{
+      "bugs": "Insectes",
+      "fishs": "Poissons",
+      "villagers": "Villageois",
+      "arts": "Oeuvres d'Art",
+      "index": {
+        "update": "Modifier",
+        "remove": "X",
+        "seller": "Vendeur",
+        "price": "Prix",
+        "quantity": "Quantité"
+      }
     }
   }
 }

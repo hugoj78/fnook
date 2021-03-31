@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux'
 export const ADD_SALE = 'ADD_SALE'
 export const DECREMENT_QUANTITY_SALE = 'DECREMENT_QUANTITY_SALE'
 export const REMOVE_SALE = 'REMOVE_SALE'
+export const UPDATE_SALE = 'UPDATE_SALE'
 
 export const addSale = sale => ({
   type: ADD_SALE,
@@ -16,6 +17,11 @@ export const decrementSaleQuantity = (sale, quantity) => ({
 
 export const removeSale = sale => ({
   type: REMOVE_SALE,
+  payload: sale
+})
+
+export const updateSale = sale => ({
+  type: UPDATE_SALE,
   payload: sale
 })
 

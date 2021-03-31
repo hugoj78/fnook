@@ -19,8 +19,11 @@ import Header from '../../component/header'
 import Purchase from '../../component/purchase'
 import Sale from '../../component/sale'
 import FormSale from '../../component/sale/form'
+import UpdateSale from '../../component/sale/updateSale'
 import Villagers from '../../component/items/villagers'
 import Fishs from '../../component/items/fishs'
+import Bugs from '../../component/items/bugs'
+import Artworks from '../../component/items/artworks'
 import ItemSales from '../../component/items/sales'
 import Item from '../../component/item'
 import Admin from '../../component/admin'
@@ -83,6 +86,8 @@ const Routes = () => {
           <PrivateRoute exact path='/' component={Home} />
           <PrivateRoute exact path='/villagers' component={Villagers} />
           <PrivateRoute exact path='/fishs' component={Fishs} />
+          <PrivateRoute exact path='/bugs' component={Bugs} />
+          <PrivateRoute exact path='/artworks' component={Artworks} />
           <PrivateRoute exact path='/items/:id' component={ItemSales} />
           <PrivateRoute exact path='/item/:id' component={Item} />
           <PrivateRoute exact path='/profil' component={Profil} />
@@ -92,6 +97,7 @@ const Routes = () => {
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />
+          <PrivateRoute exact path='/sale/form/:id' component={UpdateSale} />
           <AdminRoute exact path='/admin' component={Admin} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>

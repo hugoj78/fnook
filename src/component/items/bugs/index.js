@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getVillagers } from '../../../actions/nookipedia'
+import { getBugs } from '../../../actions/nookipedia'
 import { useHistory } from 'react-router-dom'
 
 import {
@@ -15,17 +15,17 @@ import {
   ArrowRight
 } from './element'
 
-const Villagers = () => {
+const Bugs = () => {
   const dispatch = useDispatch()
   useEffect(() => {
-    dispatch(getVillagers())
+    dispatch(getBugs())
   }, [])
   const history = useHistory()
   const [offSet, setoffSet] = useState({ value: 0, number: 1 })
-  const villagersList = useSelector(state => state.nookipedia.villagers)
+  const bugsList = useSelector(state => state.nookipedia.bugs)
   const changeOffset = 15
-  const [displayVillagers, setDiplayVillagers] = useState(
-    villagersList.slice(offSet.value, changeOffset)
+  const [displayBugs, setDiplayBugs] = useState(
+    bugsList.slice(offSet.value, changeOffset)
   )
 
   const increase = () => {
@@ -39,15 +39,13 @@ const Villagers = () => {
   }
 
   useEffect(() => {
-    setDiplayVillagers(
-      villagersList.slice(offSet.value, offSet.value + changeOffset)
-    )
+    setDiplayBugs(displayBugs.slice(offSet.value, offSet.value + changeOffset))
   }, [offSet])
 
   return (
     <Container>
       <RowVillagers>
-        {displayVillagers.map(item => (
+        {displayBugs.map(item => (
           <ColumnVillagers key={item?.id}>
             {/* <p>{item.name}</p> */}
             <ImgVillagers src={item?.image_url} />
@@ -62,7 +60,7 @@ const Villagers = () => {
       <PaginationContainer>
         {offSet.number > 1 ? <ArrowLeft onClick={decrease} /> : <div> </div>}
         <ParagrapheContainer>{offSet.number}</ParagrapheContainer>
-        {villagersList.length > offSet.value + changeOffset / 2 ? (
+        {displayBugs.length > offSet.value + changeOffset / 2 ? (
           <ArrowRight onClick={increase} />
         ) : (
           <div> </div>
@@ -72,4 +70,4 @@ const Villagers = () => {
   )
 }
 
-export default Villagers
+export default Bugs
