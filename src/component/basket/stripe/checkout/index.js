@@ -34,6 +34,7 @@ const Checkout = () => {
 
       for (let index = 0; index < basket.length; index++) {
         const element = basket[index]
+        // ADRIEN TON CODE DOIT ETRE ICI hihi ouistiti
         dispatch(removeItemBasket(element))
       }
 

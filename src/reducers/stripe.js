@@ -22,9 +22,7 @@ const incrementQuantity = (payload, list) => {
 }
 
 const incrementQuantityWithValue = (payload, list, value) => {
-  console.log(payload)
   payload.quantity = Number(payload.quantity) + Number(value)
-  console.log(payload.quantity)
   const indexOfEdit = list.map(listItem => listItem.id).indexOf(payload.id)
   list.splice(indexOfEdit, 1, payload)
   return [...list]

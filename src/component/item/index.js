@@ -44,6 +44,7 @@ const Item = props => {
     dispatch(incrementItemBasketWithValue(checkBasket[0], quantity))
     history.push('/basket')
   }
+
   const addBasket = () => {
     const data = {
       id: filterItem[0]?.id,
