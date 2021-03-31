@@ -7,6 +7,8 @@ import {
 } from 'react-router-dom'
 import PrivateRoute from '../../utils/privateRoute'
 import PublicRoute from '../../utils/publicRoute'
+import AdminRoute from '../../utils/adminRoute'
+
 import Login from '../../component/login'
 import Home from '../../component/home'
 import Profil from '../../component/profil'
@@ -20,6 +22,8 @@ import FormSale from '../../component/sale/form'
 import Villagers from '../../component/items/villagers'
 import ItemSales from '../../component/items/sales'
 import Item from '../../component/item'
+import Admin from '../../component/admin'
+
 import { ThemeProvider } from 'styled-components'
 import { useSelector } from 'react-redux'
 import { theme, themeDark } from '../../config/theme'
@@ -86,6 +90,7 @@ const Routes = () => {
           <PrivateRoute exact path='/purchase' component={Purchase} />
           <PrivateRoute exact path='/sale' component={Sale} />
           <PrivateRoute exact path='/sale/form' component={FormSale} />
+          <AdminRoute exact path='/admin' component={Admin} />
           <Route render={() => <Redirect to='/' />} />
         </Switch>
       </Router>

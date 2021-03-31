@@ -22,7 +22,8 @@
       "bill": "Mes factures",
       "sales": "Mes ventes",
       "purchase": "Mes achats",
-      "lng": "Langue"
+      "lng": "Langue",
+      "admin": "Admin"
     },
     "home": {
       "villager": "Villageois",
@@ -36,6 +37,16 @@
       "price": "Prix",
       "button": "Reçu",
       "noBill": "Vous n'avez point de facture"
+    },
+    "admin":{
+      "title": "Admin Page",
+      "saleTitle": "Toutes les ventes",
+      "purchaseTitle": "Tous les achats",
+      "name": "Nom",
+      "quantity": "Quantité",
+      "price": "Prix",
+      "status": "Statut",
+      "receipt": "Reçu"
     }
   }
 }

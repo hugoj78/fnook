@@ -22,7 +22,8 @@
       "bill": "My bills",
       "sales": "My sales",
       "purchase": "My purchases",
-      "lng": "Language"
+      "lng": "Language",
+      "admin": "Admin"
     },
     "home": {
       "villager": "Villager",
@@ -36,6 +37,16 @@
       "price": "Price",
       "button": "Voucher",
       "noBill": "You got no bill !"
+    },
+    "admin":{
+      "title": "Admin Page",
+      "saleTitle": "All sales",
+      "purchaseTitle": "All purchases",
+      "name": "Name",
+      "quantity": "Quantity",
+      "price": "Price",
+      "status": "Status",
+      "receipt": "Receipt"
     }
   }
 }
