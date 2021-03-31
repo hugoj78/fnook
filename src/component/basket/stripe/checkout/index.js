@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
 import { useDispatch, useSelector } from 'react-redux'
 import { doPayement, removeItemBasket } from '../../../../actions/stripe'
 import { useHistory } from 'react-router-dom'
+import { checkSale } from '../../../../actions/sales'
 
 const Checkout = () => {
   const stripe = useStripe()
@@ -11,6 +12,7 @@ const Checkout = () => {
   const userName = useSelector(state => state.user.userValue)
   const price = useSelector(state => state.stripe.totalPrice)
   const history = useHistory()
+  const salesList = useSelector(state => state.sales.list)
 
   const basket = useSelector(state => state.stripe.basketValue).filter(
     item => item.user === userName
@@ -34,7 +36,8 @@ const Checkout = () => {
 
       for (let index = 0; index < basket.length; index++) {
         const element = basket[index]
-        // ADRIEN TON CODE DOIT ETRE ICI hihi ouistiti
+        const filterItem = salesList.filter(e => e.id === element.id)
+        dispatch(checkSale(filterItem[0], element.quantity))
         dispatch(removeItemBasket(element))
       }
 
