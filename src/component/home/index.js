@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getVillagers } from '../../actions/nookipedia'
-import { swapIsLoading } from '../../actions/loading'
+import { setIsLoading } from '../../actions/loading'
 
 import styled from 'styled-components'
 import {
@@ -27,7 +27,6 @@ const Home = () => {
   const villagersList = useSelector(state => state.nookipedia.villagers)
   const [fourVillagers, setFourVillagers] = useState(villagersList.slice(0, 4))
   const redirectToVillagers = () => {
-    // dispatch(swapIsLoading())
     history.push('/villagers')
   }
 
