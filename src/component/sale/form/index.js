@@ -9,7 +9,7 @@ import uuid from 'uuid'
 import { useHistory } from 'react-router-dom'
 
 const FormSale = () => {
-  const [options, setOptions] = useState(['Villagers', 'Fish'])
+  const [options, setOptions] = useState(['Villagers', 'Fishs'])
   const dispatch = useDispatch()
   useEffect(() => {
     dispatch(getVillagers())
@@ -18,6 +18,7 @@ const FormSale = () => {
   const history = useHistory()
   const [type, setType] = useState('Villagers')
   const villagersList = useSelector(state => state.nookipedia.villagers)
+  const fishsList = useSelector(state => state.nookipedia.fishs)
   const [typeItems, setTypeItems] = useState(villagersList)
   const [idItem, setIdItem] = useState(villagersList[0].id)
   const [price, setPrice] = useState(0)
@@ -28,12 +29,14 @@ const FormSale = () => {
 
   useEffect(() => {
     if (type === 'Villagers') {
-      setTypeItems(typeItems)
+      setTypeItems(villagersList)
+    } else if (type === 'Fishs') {
+      setTypeItems(fishsList)
     }
   }, [type])
 
   const changeItem = idI => {
-    const newitem = typeItems.filter(e => e.id === idI)
+    const newitem = typeItems.filter(e => e.name === idI)
     setIdItem(newitem[0].id)
     setName(newitem[0].name)
     setImageUrl(newitem[0].image_url)
@@ -44,7 +47,7 @@ const FormSale = () => {
     const newSale = {
       id: uuid(),
       type: type,
-      idMother: idItem,
+      idMother: name,
       price: price,
       quantity: quantity,
       user: user,

@@ -35,7 +35,7 @@ const DisplayForm = ({
         <DivContainer>
           <SelectType onChange={e => changeItem(e.target.value)}>
             {typeItems.map(i => (
-              <option key={i.id} value={i.id}>
+              <option key={i.name} value={i.name}>
                 {i.name}
               </option>
             ))}
