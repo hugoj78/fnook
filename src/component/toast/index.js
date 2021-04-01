@@ -6,7 +6,7 @@ const Toast = ({ title, body, setShow }) => {
     <Container>
       <DeleteButton onClick={() => setShow(false)}>X</DeleteButton>
       <Header>
-        <Image src='logo.svg' alt='fnook logo' />
+        <Image src='logo_hugo.svg' alt='fnook logo' />
         <Title>{title}</Title>
       </Header>
       <Body>
