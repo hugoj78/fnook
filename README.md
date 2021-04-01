@@ -13,6 +13,7 @@ yarn start
 
 
 ## 📖 List of available routes 📖 
+- /login -> login to acces of the project
 - / -> Display the first 4 items of Villagers, Fishs, Bugs and Artworks
 - /villagers -> Display all Villagers
 - /fishs -> Display all Fishs
