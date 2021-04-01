@@ -38,4 +38,9 @@ yarn start
 ## 🤝 Production 🤝
 - https://fnook.herokuapp.com
 
-PS: Si le site heroku n'est pas chargé depuis longtemps, il peut arriver que le site affiche un msg d'erreur (mais ne dit absolument rien dans les logs). Il suffit de reload la page et le problème disparait 😕.
+PS: Si le site heroku n'est pas chargé depuis longtemps, il peut arriver que le site affiche un msg d'erreur : c'est un timeout, car l'application effectue un requete get sur "/" alors que l'application n'a pas rebuild encore. Il suffit de reload la page.
+
+Ci-joint la preuve de mes propos :
+
+ScreenshotLog.png![image](https://user-images.githubusercontent.com/12957553/113265727-c58ce780-92d4-11eb-8daa-981945e1270f.png)
+
