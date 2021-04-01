@@ -33,3 +33,5 @@ yarn start
 
 ## 🤝 Production 🤝
 - https://fnook.herokuapp.com
+
+PS: Si le site heroku n'est pas chargé depuis longtemps, il peut arriver que le site affiche un msg d'erreur (mais ne dit absolument rien dans les logs). Il suffit de reload la page et le problème disparait 😕.
