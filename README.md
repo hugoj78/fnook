@@ -1,5 +1,8 @@
 # 🍕 fnook 🍕
 
+EGU Hugo-Jean 😷
+LEIB Adrien 😎
+
 ## 🖥️ List of node modules to install 🖥️
 ```
 npm install
