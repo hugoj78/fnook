@@ -1,15 +1,18 @@
-# fnook
+# 🍕 fnook 🍕
 
-## List of node modules to install
-- npm install
+## 🖥️ List of node modules to install 🖥️
+```
+npm install
+```
 
-
-## How to Start the project
+## 🧪 How to Start the project 🧪
 - place yourself at the root of the project
-- yarn start
+```
+yarn start
+```
 
 
-## List of available routes
+## 📖 List of available routes 📖 
 - / -> Display the first 4 items of Villagers, Fishs, Bugs and Artworks
 - /villagers -> Display all Villagers
 - /fishs -> Display all Fishs
@@ -27,5 +30,5 @@
 - /sale/form/:id -> Form for update sale (accessible if current user are seller)
 - /admin -> panel of admin
 
-## Production
+## 🤝 Production 🤝
 - fnook.herokuapp.com
