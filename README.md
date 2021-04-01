@@ -31,4 +31,4 @@ yarn start
 - /admin -> panel of admin
 
 ## 🤝 Production 🤝
-- https://fnook.herokuapp.com/sale/form
+- https://fnook.herokuapp.com
