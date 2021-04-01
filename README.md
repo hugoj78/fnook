@@ -1,6 +1,7 @@
 # 🍕 fnook 🍕
 
-EGU Hugo-Jean 😷
+EGU Hugo-Jean 😇
+
 LEIB Adrien 😎
 
 ## 🖥️ List of node modules to install 🖥️
