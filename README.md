@@ -1,7 +1,7 @@
 # fnook
 
 ## List of node modules to install
-- yarn install or npm install
+- npm install
 
 
 ## How to Start the project
