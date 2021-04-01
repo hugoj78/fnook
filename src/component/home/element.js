@@ -43,3 +43,5 @@ export const ImgVillagers = styled.img`
   height: 80px;
   width: auto;
 `
+
+const ButtonNoApi = styled.button``
