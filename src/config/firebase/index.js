@@ -22,7 +22,6 @@ export const getToken = setTokenFound => {
     })
     .then(currentToken => {
       if (currentToken) {
-        // console.log(currentToken)
         setTokenFound(true)
       } else {
         console.log(
