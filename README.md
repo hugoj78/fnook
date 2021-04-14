@@ -36,9 +36,16 @@ yarn start
 - /admin -> panel of admin
 
 ## 🤝 Production 🤝
+- https://fnook.netlify.app/
+
+
+
+
+PS: il y a aussi une prod heroku mais :
+
 - https://fnook.herokuapp.com
 
-PS: Si le site heroku n'est pas chargé depuis longtemps, il peut arriver que le site affiche un msg d'erreur : c'est un timeout, car l'application effectue un requete get sur "/" alors que l'application n'a pas rebuild encore. Il suffit de reload la page.
+Si le site heroku n'est pas chargé depuis longtemps, il peut arriver que le site affiche un msg d'erreur : c'est un timeout, car l'application effectue un requete get sur "/" alors que l'application n'a pas rebuild encore. Il suffit de reload la page.
 
 Ci-joint la preuve de mes propos :
 
