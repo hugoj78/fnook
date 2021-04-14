@@ -38,10 +38,9 @@ yarn start
 ## 🤝 Production 🤝
 - https://fnook.netlify.app/
 
+PS: La pwa marche sur netlify et pas sur heroku...
 
-
-
-PS: il y a aussi une prod heroku mais :
+PS2: il y a aussi une prod heroku mais :
 
 - https://fnook.herokuapp.com
 
