@@ -5,7 +5,7 @@ import DisplayForm from './displayForm'
 import { getToken } from '../../../actions/token'
 import { incrementUser } from '../../../actions/user'
 import { addSale } from '../../../actions/sales'
-import uuid from 'uuid'
+import uuid from 'uuid/v1'
 import { useHistory } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 const FormSale = () => {
